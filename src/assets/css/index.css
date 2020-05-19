@@ -1,0 +1,18 @@
+@tailwind base;
+
+@tailwind components;
+
+@responsive
+{
+    .quicksand
+    {
+        font-family:'Quicksand', sans-serif;
+    }
+
+    .baloo-bhaina
+    {
+        font-family:'Baloo bhaina 2', cursive;
+    }
+}
+
+@tailwind utilities;
