@@ -619,16 +619,6 @@ video {
   }
 }
 
-.quicksand
-    {
-  font-family:'Quicksand', sans-serif;
-}
-
-.baloo-bhaina
-    {
-  font-family:'Baloo bhaina 2', cursive;
-}
-
 .space-y-0 > :not(template) ~ :not(template) {
   --space-y-reverse: 0;
   margin-top: calc(0px * calc(1 - var(--space-y-reverse)));
@@ -17888,17 +17878,22 @@ video {
   transition-delay: 1000ms;
 }
 
+.quicksand
+    {
+  font-family:'Quicksand', sans-serif;
+}
+
+.baloo-bhaina
+    {
+  font-family:'Baloo bhaina 2', cursive;
+}
+
+.border-color-005
+    {
+  border-color:rgba(0,0,0,0.05);
+}
+
 @media (min-width: 640px) {
-  .sm\:quicksand
-    {
-    font-family:'Quicksand', sans-serif;
-  }
-
-  .sm\:baloo-bhaina
-    {
-    font-family:'Baloo bhaina 2', cursive;
-  }
-
   .sm\:space-y-0 > :not(template) ~ :not(template) {
     --space-y-reverse: 0;
     margin-top: calc(0px * calc(1 - var(--space-y-reverse)));
@@ -35157,19 +35152,24 @@ video {
   .sm\:delay-1000 {
     transition-delay: 1000ms;
   }
-}
 
-@media (min-width: 768px) {
-  .md\:quicksand
+  .sm\:quicksand
     {
     font-family:'Quicksand', sans-serif;
   }
 
-  .md\:baloo-bhaina
+  .sm\:baloo-bhaina
     {
     font-family:'Baloo bhaina 2', cursive;
   }
 
+  .sm\:border-color-005
+    {
+    border-color:rgba(0,0,0,0.05);
+  }
+}
+
+@media (min-width: 768px) {
   .md\:space-y-0 > :not(template) ~ :not(template) {
     --space-y-reverse: 0;
     margin-top: calc(0px * calc(1 - var(--space-y-reverse)));
@@ -52428,19 +52428,24 @@ video {
   .md\:delay-1000 {
     transition-delay: 1000ms;
   }
-}
 
-@media (min-width: 1024px) {
-  .lg\:quicksand
+  .md\:quicksand
     {
     font-family:'Quicksand', sans-serif;
   }
 
-  .lg\:baloo-bhaina
+  .md\:baloo-bhaina
     {
     font-family:'Baloo bhaina 2', cursive;
   }
 
+  .md\:border-color-005
+    {
+    border-color:rgba(0,0,0,0.05);
+  }
+}
+
+@media (min-width: 1024px) {
   .lg\:space-y-0 > :not(template) ~ :not(template) {
     --space-y-reverse: 0;
     margin-top: calc(0px * calc(1 - var(--space-y-reverse)));
@@ -69699,19 +69704,24 @@ video {
   .lg\:delay-1000 {
     transition-delay: 1000ms;
   }
-}
 
-@media (min-width: 1280px) {
-  .xl\:quicksand
+  .lg\:quicksand
     {
     font-family:'Quicksand', sans-serif;
   }
 
-  .xl\:baloo-bhaina
+  .lg\:baloo-bhaina
     {
     font-family:'Baloo bhaina 2', cursive;
   }
 
+  .lg\:border-color-005
+    {
+    border-color:rgba(0,0,0,0.05);
+  }
+}
+
+@media (min-width: 1280px) {
   .xl\:space-y-0 > :not(template) ~ :not(template) {
     --space-y-reverse: 0;
     margin-top: calc(0px * calc(1 - var(--space-y-reverse)));
@@ -86969,5 +86979,20 @@ video {
 
   .xl\:delay-1000 {
     transition-delay: 1000ms;
+  }
+
+  .xl\:quicksand
+    {
+    font-family:'Quicksand', sans-serif;
+  }
+
+  .xl\:baloo-bhaina
+    {
+    font-family:'Baloo bhaina 2', cursive;
+  }
+
+  .xl\:border-color-005
+    {
+    border-color:rgba(0,0,0,0.05);
   }
 }

@@ -2,6 +2,8 @@
 
 @tailwind components;
 
+@tailwind utilities;
+
 @responsive
 {
     .quicksand
@@ -13,6 +15,9 @@
     {
         font-family:'Baloo bhaina 2', cursive;
     }
-}
 
-@tailwind utilities;
+    .border-color-005
+    {
+        border-color:rgba(0,0,0,0.05);
+    }
+}
