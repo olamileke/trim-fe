@@ -1,6 +1,11 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
+
+import { UserData } from '../../models/user.data';
+import { UserService } from '../../services/user.service';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-auth',
@@ -9,28 +14,24 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AuthComponent implements OnInit {
 
-  constructor(private router:Router, private rte:ActivatedRoute, private fb:FormBuilder) { }
+  constructor(private router:Router, private rte:ActivatedRoute,
+  private fb:FormBuilder, private user_service:UserService,
+  private notif:NotificationService) { }
+
   type:string;
   signupForm:FormGroup;
   loginForm:FormGroup;
+  fetching:boolean = false;
 
   ngOnInit(): void {
-    this.determineAuth();
-  }
-
-  ngOnChanges() : void {
     this.determineAuth();
   }
 
   determineAuth(): void {
     this.type = this.rte.snapshot.paramMap.get('type');
 
-    if(this.type == 'signup') {
+    if(this.type == 'signup' || this.type == 'login') {
         this.createSignupForm();
-        return;
-    }
-
-    if(this.type == 'login') {
         this.createLoginForm();
         return;
     }
@@ -57,4 +58,16 @@ export class AuthComponent implements OnInit {
     this.type = type;
   }
 
+  signup(form:FormGroup): void {
+    this.fetching = true;
+
+    this.user_service.signup(form.value).subscribe((res:UserData) => {
+        this.fetching = false;
+        this.notif.success('Signup successful. Check your email');
+    })
+  }
+
+  login(form:FormGroup): void {
+
+  }
 }
