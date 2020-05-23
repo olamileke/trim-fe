@@ -1,15 +1,15 @@
-<div class='w-screen lg:h-screen flex flex-row items-center grid grid-cols-12 bg-white quicksand relative landing__page'>
-    <div class='col-start-2 col-end-12 lg:col-start-3 lg:col-end-11 relative p-16 flex flex-row items-center lg:items-start' style='background:rgba(209, 221, 219, 0.13); height:75%;'>
-        <div class='flex flex-col w-64 lg:mt-12 lg:pt-3 text-gray-800 lowercase'>
+<div class='w-screen lg:h-screen flex flex-row items-center p-4 sm:p-0 grid grid-cols-12 bg-white quicksand relative landing__page'>
+    <div class='col-span-12 h-full sm:h-3/4 sm:col-start-2 sm:col-end-12 lg:col-start-3 lg:col-end-11 relative p-6 sm:p-8 md:p-16 flex flex-row items-center lg:items-start' style='background:rgba(209, 221, 219, 0.13);'>
+        <div class='flex flex-col w-full sm:w-64 lg:mt-12 lg:pt-3 text-gray-800 lowercase'>
             <p class='m-0 ml-1 mb-3 text-3xl'>Trim</p>
-            <p class='text-lg ml-2 mb-4'>
+            <p class='text-justify sm:text-left text-lg ml-2 mb-4'>
                A tool to shorten links on the world wide web and still point to your original site or page. Reliable, fast and secure.
             </p>
             <a routerLink='/auth/signup' class='active:bg-darkBlueOpaque ml-2 p-2 bg-black text-white w-24 text-center bg-darkblue' style='box-shadow:2px 5px 3px 3px rgba(0,0,0,0.1)'>Signup</a>
         </div>
-        <img src='/assets/images/home/download.svg' width='390px' class='hidden lg:inline absolute' style='top:50px;right:-40px'>
+        <img src='/assets/images/home/download.svg' width='390px' class='hidden lg:inline absolute' style='top:50px;right:-100px'>
     </div>
-    <div class='absolute top-0 flex flex-row items-start justify-between px-10 py-6 w-screen' style='height:25%'>
+    <div class='hidden absolute h-1/4 top-0 flex-row items-start justify-between px-10 py-8 w-screen'>
         <a routerLink=''>trim</a> 
         <div class='flex flex-row'>
             <a routerLink='/auth/signup' class='active:outline-none underline mr-3'>signup</a>

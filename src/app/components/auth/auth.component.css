@@ -9,3 +9,28 @@ button:active
     background:rgba(40, 59, 66, 0.9);
 }
 
+form
+{
+    width:313px
+}
+
+img
+{
+    width:500px;
+}
+
+@media(max-width:1025px)
+{
+    img
+    {
+        width:350px;
+    }
+}
+
+@media(max-width:769px)
+{
+    form
+    {
+        width:100%;
+    }
+}
