@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 import { UserData } from '../../models/user.data';
+import { AuthService } from '../../services/auth.service';
 import { UserService } from '../../services/user.service';
 import { NotificationService } from '../../services/notification.service';
 
@@ -16,7 +17,7 @@ export class AuthComponent implements OnInit {
 
   constructor(private router:Router, private rte:ActivatedRoute,
   private fb:FormBuilder, private user_service:UserService,
-  private notif:NotificationService) { }
+  private notif:NotificationService, private auth:AuthService) { }
 
   type:string;
   signupForm:FormGroup;
@@ -69,5 +70,31 @@ export class AuthComponent implements OnInit {
 
   login(form:FormGroup): void {
 
+    this.auth.login(form.value).subscribe((res:any) => {
+        localStorage.setItem('trim_token', res.data.token);
+        localStorage.setItem('trim_user', JSON.stringify(res.data.user));
+        this.router.navigate(['/dashboard']);
+        this.notif.success('Logged in successfully');
+    })
+  }
+
+  get signupName() {
+    return this.signupForm.get('name');
+  }
+
+  get signupEmail() {
+    return this.signupForm.get('email');
+  }
+
+  get signupPassword() {
+    return this.signupForm.get('password');
+  }
+
+  get loginEmail() {
+    return this.loginForm.get('email');
+  }
+
+  get loginPassword() {
+    return this.loginForm.get('password');
   }
 }

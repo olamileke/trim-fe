@@ -10,14 +10,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './components/home/home.component';
 import { AuthComponent } from './components/auth/auth.component';
 
+import { HttpInterceptors } from './interceptors/http.interceptors';
 import { UserService } from './services/user.service';
 import { NotificationService } from './services/notification.service';
+import { AuthService } from './services/auth.service';
+import { LoaderComponent } from './components/loader/loader.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AuthComponent
+    AuthComponent,
+    LoaderComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -28,8 +34,10 @@ import { NotificationService } from './services/notification.service';
     ToastrModule.forRoot()
   ],
   providers: [
+    HttpInterceptors,
     UserService,
-    NotificationService
+    NotificationService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
