@@ -1,0 +1,11 @@
+
+<div class='w-screen h-min-screen grid grid-cols-12 quicksand'>
+    <div class='col-span-2 h-screen pt-16 px-8 bg-darkblue'>
+        <app-sidebar (toggle)="switchTab($event)"></app-sidebar>
+    </div>
+    <div class='col-span-10 bg-offwhite'>
+        <app-header></app-header>
+        <app-dashboard *ngIf='tabs.dashboard'></app-dashboard>
+        <app-new-group *ngIf='tabs.new_group'></app-new-group>
+    </div>
+</div>

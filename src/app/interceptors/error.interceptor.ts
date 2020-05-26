@@ -29,7 +29,7 @@ export class ErrorInterceptor implements HttpInterceptor {
 
         if(url == 'authenticate') {
             if(error.status == 404) {
-                this.notif.error('Invalid email or password');
+                this.notif.error('Incorrect email or password');
                 displayed = true;
             }
         }

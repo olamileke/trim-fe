@@ -16,6 +16,10 @@ import { NotificationService } from './services/notification.service';
 import { AuthService } from './services/auth.service';
 import { LoaderComponent } from './components/loader/loader.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AuthHomeComponent } from './components/auth-home/auth-home.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { HeaderComponent } from './components/header/header.component';
+import { NewGroupComponent } from './components/new-group/new-group.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     HomeComponent,
     AuthComponent,
     LoaderComponent,
-    DashboardComponent
+    DashboardComponent,
+    AuthHomeComponent,
+    SidebarComponent,
+    HeaderComponent,
+    NewGroupComponent
   ],
   imports: [
     BrowserModule,
