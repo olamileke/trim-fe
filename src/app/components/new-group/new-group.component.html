@@ -1,24 +1,25 @@
 
-<div class='grid grid-cols-12 mt-5'>
+<div class='grid grid-cols-12 mt-6'>
     <div class='col-start-3 col-span-7 flex flex-col'>
-        <div class='lowercase bg-white p-5 rounded-md text-md mb-4 text-gray-700 border' style='border-color:rgba(0,0,0,0.06)'>
+        <div class='lowercase bg-white p-5 text-md mb-2 rounded-md text-gray-700 border'
+        style='border-color:rgba(0,0,0,0.06);'>
             Create a new URL group
         </div>
-        <form class='bg-white border rounded-md px-5 py-8' [formGroup]='newForm'
-        (ngSubmit)='submit(newForm)' style='border-color:rgba(0,0,0,0.06)'>
+        <form class='bg-white border rounded-lg px-6 py-8' [formGroup]='newForm'
+        (ngSubmit)='submit(newForm)' style='border-color:rgba(0,0,0,0.06);'>
             <div class='flex flex-col mb-3'>
                 <p class='text-md text-gray-700 mb-3'>name</p>
-                <input type='text' formControlName='name' class='text-gray-700 focus:bg-offwhite border border-color-005 p-3' required>
+                <input type='text' formControlName='name' class='text-gray-700 focus:bg-offwhite border p-3' required>
                 <p class='pt-2 text-red-600 text-xs' *ngIf='name.dirty && name.invalid'>name must be at least 5 characters</p>
             </div>
 
             <div class='flex flex-col mb-5'>
                 <p class='text-md text-gray-700 mb-3'>url</p>
-                <input type='text' formControlName='url' class='text-gray-700 focus:bg-offwhite border border-color-005 p-3' required>
+                <input type='text' formControlName='url' class='text-gray-700 focus:bg-offwhite border p-3' required>
                 <p class='pt-2 text-red-600 text-xs' *ngIf='url.dirty && url.invalid'>enter a valid url</p>
             </div>
             <div>
-                <button type='submit' class='focus:outline-none text-white px-3 py-2 rounded bg-darkblue' [disabled]='newForm.invalid'>create</button>
+                <button type='submit' class='focus:outline-none text-white px-3 py-2 bg-darkblue' [disabled]='newForm.invalid'>create</button>
             </div>
         </form>
     </div>

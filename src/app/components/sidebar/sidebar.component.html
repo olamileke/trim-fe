@@ -2,13 +2,14 @@
 
 <ul class='text-white'>
     <li class='mb-16'>
-        <div class='p-4 flex flex-row justify-center items-center bg-darkblue text-white shadow' style='border-radius:10px;'>
+        <div class='p-4 flex flex-row justify-center items-center bg-darkblue cursor-pointer text-white shadow' (click)="emitToggle('shorten')"
+        style='border-radius:10px;'>
             <p class='m-0 mr-3 text-base'>shorten new url</p>
             <i class='fa fa-link text-2xl'></i>
         </div>
     </li>
     <li class='transition-colors duration-500 ease-in mb-5 p-4 rounded-md flex flex-row items-center cursor-pointer' 
-    [ngClass]="{'shadow':activeTab == 'dashboard'}" (click)="emitToggle('dashboard')">
+    [ngClass]="{'shadow':activeTab == 'dashboard' || activeTab == 'shorten'}" (click)="emitToggle('dashboard')">
         <i class='fa fa-align-left mr-3'></i>
         <p class='m-0' style='font-size:0.93em;'>Dashboard</p>
     </li>
@@ -23,7 +24,7 @@
         <p class='m-0' style='font-size:0.93em;'>Groups</p>
     </li>
     <li class='transition-all duration-500 ease-in mb-5 p-4 rounded-md flex flex-row items-center cursor-pointer'
-    [ngClass]="{'shadow':activeTab == 'short'}" (click)="emitToggle('short')">
+    [ngClass]="{'shadow':activeTab == 'short_urls'}" (click)="emitToggle('short_urls')">
         <i class='fa fa-external-link-alt mr-3'></i>
         <p class='m-0' style='font-size:0.93em;'>Shortened Urls</p>
     </li>

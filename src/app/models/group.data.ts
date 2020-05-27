@@ -1,7 +1,5 @@
 import { Group } from './group';
 
 export class GroupData {
-    data:{
-        group:Group
-    }
+    data:Group | Group[]
 }

@@ -20,6 +20,8 @@ import { AuthHomeComponent } from './components/auth-home/auth-home.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NewGroupComponent } from './components/new-group/new-group.component';
+import { GroupsComponent } from './components/groups/groups.component';
+import { ShortenComponent } from './models/components/shorten/shorten.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { NewGroupComponent } from './components/new-group/new-group.component';
     AuthHomeComponent,
     SidebarComponent,
     HeaderComponent,
-    NewGroupComponent
+    NewGroupComponent,
+    GroupsComponent,
+    ShortenComponent,
   ],
   imports: [
     BrowserModule,

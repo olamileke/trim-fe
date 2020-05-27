@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AuthHomeComponent implements OnInit {
 
   constructor() { }
-  tabs: any = { dashboard:true, new_group:false, groups:false, short:false }
+  tabs: any = { dashboard:true, new_group:false, groups:false, shorten:false, short_urls:false }
 
   ngOnInit(): void {
   }
