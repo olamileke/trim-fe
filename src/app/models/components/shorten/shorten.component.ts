@@ -4,6 +4,7 @@ import { GroupData } from '../../../models/group.data';
 import { GroupService } from '../../../services/group.service';
 import { UrlService } from '../../../services/url.service';
 import { UrlData } from '../../../models/url.data';
+import { environment } from '../../../../environments/environment.prod';
 
 @Component({
   selector: 'app-shorten',
@@ -12,12 +13,17 @@ import { UrlData } from '../../../models/url.data';
 })
 export class ShortenComponent implements OnInit {
 
-  constructor(private group:GroupService, private fb:FormBuilder) { }
+  constructor(private group:GroupService, private fb:FormBuilder,
+  private url:UrlService) { }
+
   shortenForm:FormGroup;
   groups:any;
   urlRegex:string = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
   loaded:boolean = false;
+  shortened:boolean = false;
   selectedGroupUrl:string = 'None';
+  shortenedUrl:string = '';
+  initialUrl:string = '';
 
   ngOnInit(): void {
     this.fetch();
@@ -35,7 +41,7 @@ export class ShortenComponent implements OnInit {
     this.shortenForm = this.fb.group({
         'url':['', [Validators.required, Validators.pattern(this.urlRegex)]],
         'group':['none', [Validators.required]],
-        'length':['5', [Validators.required]]
+        'length':['6', [Validators.required]]
     })
   }
 
@@ -63,7 +69,22 @@ export class ShortenComponent implements OnInit {
     }
   }
 
-  get url(): any {
+  submit(form:FormGroup) {
+    
+    const data = form.value;
+    data.group == 'none' ? data.group = null : data.group = data.group;
+    this.initialUrl = data.url;
+    
+    this.url.create(data).subscribe((res:UrlData) => {
+        form.get('url').markAsPristine();
+        form.get('url').setValue('');
+        form.get('group').setValue('none'); 
+        this.shortened = true;
+        this.shortenedUrl = environment.client_url + res.data.short_path;    
+    })
+  }
+
+  get path(): any {
     return this.shortenForm.get('url');
   }
 
