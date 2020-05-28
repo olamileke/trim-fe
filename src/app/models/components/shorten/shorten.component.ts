@@ -23,7 +23,6 @@ export class ShortenComponent implements OnInit {
   shortened:boolean = false;
   selectedGroupUrl:string = 'None';
   shortenedUrl:string = '';
-  initialUrl:string = '';
 
   ngOnInit(): void {
     this.fetch();
@@ -73,14 +72,13 @@ export class ShortenComponent implements OnInit {
     
     const data = form.value;
     data.group == 'none' ? data.group = null : data.group = data.group;
-    this.initialUrl = data.url;
     
     this.url.create(data).subscribe((res:UrlData) => {
         form.get('url').markAsPristine();
         form.get('url').setValue('');
         form.get('group').setValue('none'); 
         this.shortened = true;
-        this.shortenedUrl = environment.client_url + res.data.short_path;    
+        this.shortenedUrl = environment.client_url + res.data['short_path'];    
     })
   }
 

@@ -22,6 +22,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { NewGroupComponent } from './components/new-group/new-group.component';
 import { GroupsComponent } from './components/groups/groups.component';
 import { ShortenComponent } from './models/components/shorten/shorten.component';
+import { ShortenedUrlsComponent } from './components/shortened-urls/shortened-urls.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ShortenComponent } from './models/components/shorten/shorten.component'
     NewGroupComponent,
     GroupsComponent,
     ShortenComponent,
+    ShortenedUrlsComponent,
   ],
   imports: [
     BrowserModule,

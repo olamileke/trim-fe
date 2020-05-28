@@ -15,7 +15,9 @@
             </div>
             <div class='flex flex-col mt-3'>
                 <p class='m-0 mb-1'>{{ group.name }}</p>
-                <p class='m-0 mb-1'>{{ group.url }}</p>
+                <p class='m-0 mb-1'>
+                    <a href='{{ group.url }}' target='blank'>{{ group.url }}</a>
+                </p>
                 <p class='m-0 mb-1'>{{ group.num_urls }} urls</p>
                 <p class='m-0' style='font-size:0.94rem;'>created {{ group.created_at }}</p>
             </div>
