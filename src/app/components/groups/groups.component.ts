@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { GroupService } from '../../services/group.service';
 import { GroupData } from '../../models/group.data';
-import { Group } from '../../models/group';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-groups',
@@ -10,16 +10,31 @@ import { Group } from '../../models/group';
 })
 export class GroupsComponent implements OnInit {
 
-  constructor(private group:GroupService) { }
+  constructor(private group:GroupService, private notif:NotificationService) { }
   groups: any=[];
+  @Output() viewGroup = new EventEmitter();
 
   ngOnInit(): void {
     this.fetch();
   }
 
   fetch(): void {
-    this.group.get().subscribe((res:GroupData) => {
+    this.group.getAll().subscribe((res:GroupData) => {
         this.groups = res.data;
+    })
+  }
+
+  delete(id:number): void {
+
+    const confirm = window.confirm('This will delete the group and all its associated urls. Proceed ?');
+
+    if(!confirm) {
+        return;
+    }
+
+    this.group.delete(id).subscribe((res:any) => {
+        this.notif.success('Group deleted successfully');
+        this.groups = this.groups.filter(group => group.id != id);
     })
   }
 
@@ -32,6 +47,11 @@ export class GroupsComponent implements OnInit {
     })
 
     return alias;
+  }
+
+  view(id:number) {
+    const data = {tab:'group', id:id};
+    this.viewGroup.emit(data);
   }
 
 }

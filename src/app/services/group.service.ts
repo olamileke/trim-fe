@@ -9,16 +9,29 @@ export class GroupService {
 
     constructor(private http:HttpClient) {}
 
-    get(): Observable<GroupData> {
+    get(id:number): Observable<GroupData> {
+        const url = environment.api_url + `groups/${id}`;
+        return this.http.get<GroupData>(url);
+    }
 
+    getAll(): Observable<GroupData> {
         const url = environment.api_url + 'groups';
         return this.http.get<GroupData>(url);
     }
 
     create(data:any): Observable<GroupData> {
-
         const url = environment.api_url + 'groups';
         return this.http.post<GroupData>(url, data, this.httpOptions);
+    }
+
+    edit(id:number, data:any): Observable<any> {
+        const url = environment.api_url + `groups/${id}`;
+        return this.http.patch<any>(url, data, this.httpOptions);
+    }
+
+    delete(id:number): Observable<any> {
+        const url = environment.api_url + `groups/${id}`;
+        return this.http.delete<any>(url, this.httpOptions);
     }
 
     httpOptions = {

@@ -8,12 +8,18 @@ import { Component, OnInit } from '@angular/core';
 export class AuthHomeComponent implements OnInit {
 
   constructor() { }
-  tabs: any = { dashboard:true, new_group:false, groups:false, shorten:false, short_urls:false }
+  tabs: any = { dashboard:true, new_group:false, edit_group:false, groups:false, group:false,
+  shorten:false, short_urls:false }
+  activeGroupID:number;
 
   ngOnInit(): void {
   }
 
-  switchTab(tab:string): void {
+  switchTab(tab:string, group_id=null): void {
+
+    if(group_id) {
+        this.activeGroupID = group_id;
+    }
 
     Object.keys(this.tabs).forEach(key => {
         this.tabs[key] = false;

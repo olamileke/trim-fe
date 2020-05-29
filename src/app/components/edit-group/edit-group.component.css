@@ -1,0 +1,10 @@
+
+input
+{
+    border-color:rgba(0,0,0,0.08);
+}
+
+input:focus
+{
+    border-color:rgba(0,0,0,0.05)
+}

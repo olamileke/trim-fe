@@ -23,6 +23,8 @@ import { NewGroupComponent } from './components/new-group/new-group.component';
 import { GroupsComponent } from './components/groups/groups.component';
 import { ShortenComponent } from './models/components/shorten/shorten.component';
 import { ShortenedUrlsComponent } from './components/shortened-urls/shortened-urls.component';
+import { EditGroupComponent } from './components/edit-group/edit-group.component';
+import { GroupComponent } from './components/group/group.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { ShortenedUrlsComponent } from './components/shortened-urls/shortened-ur
     GroupsComponent,
     ShortenComponent,
     ShortenedUrlsComponent,
+    EditGroupComponent,
+    GroupComponent,
   ],
   imports: [
     BrowserModule,

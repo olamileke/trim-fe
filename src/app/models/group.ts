@@ -1,7 +1,8 @@
 
 export interface Group {
+    id:number,
     name:string,
     url:string,
-    number_of_urls?:number,
+    num_urls?:number,
     created_at?:string
 }

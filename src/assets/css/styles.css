@@ -18152,6 +18152,11 @@ video {
   font-family:'Baloo bhaina 2', cursive;
 }
 
+.border-shadow
+    {
+  box-shadow:-4px 6px 5px 5px rgba(0,0,0,0.06);
+}
+
 .border-color-005
     {
   border-color:rgba(0,0,0,0.05);
@@ -35689,6 +35694,11 @@ video {
   .sm\:baloo-bhaina
     {
     font-family:'Baloo bhaina 2', cursive;
+  }
+
+  .sm\:border-shadow
+    {
+    box-shadow:-4px 6px 5px 5px rgba(0,0,0,0.06);
   }
 
   .sm\:border-color-005
@@ -53231,6 +53241,11 @@ video {
     font-family:'Baloo bhaina 2', cursive;
   }
 
+  .md\:border-shadow
+    {
+    box-shadow:-4px 6px 5px 5px rgba(0,0,0,0.06);
+  }
+
   .md\:border-color-005
     {
     border-color:rgba(0,0,0,0.05);
@@ -70771,6 +70786,11 @@ video {
     font-family:'Baloo bhaina 2', cursive;
   }
 
+  .lg\:border-shadow
+    {
+    box-shadow:-4px 6px 5px 5px rgba(0,0,0,0.06);
+  }
+
   .lg\:border-color-005
     {
     border-color:rgba(0,0,0,0.05);
@@ -88309,6 +88329,11 @@ video {
   .xl\:baloo-bhaina
     {
     font-family:'Baloo bhaina 2', cursive;
+  }
+
+  .xl\:border-shadow
+    {
+    box-shadow:-4px 6px 5px 5px rgba(0,0,0,0.06);
   }
 
   .xl\:border-color-005

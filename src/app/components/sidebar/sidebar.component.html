@@ -9,22 +9,22 @@
         </div>
     </li>
     <li class='transition-colors duration-500 ease-in mb-5 p-4 rounded-md flex flex-row items-center cursor-pointer' 
-    [ngClass]="{'shadow':activeTab == 'dashboard' || activeTab == 'shorten'}" (click)="emitToggle('dashboard')">
+    [ngClass]="{'shadow__background':activeTab == 'dashboard' || activeTab == 'shorten'}" (click)="emitToggle('dashboard')">
         <i class='fa fa-align-left mr-3'></i>
         <p class='m-0' style='font-size:0.93em;'>Dashboard</p>
     </li>
     <li class='transition-all duration-500 ease-in mb-5 p-4 rounded-md flex flex-row items-center cursor-pointer'
-    [ngClass]="{'shadow':activeTab == 'new_group'}" (click)="emitToggle('new_group')">
+    [ngClass]="{'shadow__background':activeTab == 'new_group'}" (click)="emitToggle('new_group')">
         <i class='fa fa-plus mr-3'></i>
         <p class='m-0' style='font-size:0.93em;'>New Group</p>
     </li>
     <li class='transition-all duration-500 ease-in mb-5 p-4 rounded-md flex flex-row items-center cursor-pointer'
-    [ngClass]="{'shadow':activeTab == 'groups'}" (click)="emitToggle('groups')">
+    [ngClass]="{'shadow__background':activeTab == 'groups'}" (click)="emitToggle('groups')">
         <i class='fa fa-layer-group mr-3'></i>
         <p class='m-0' style='font-size:0.93em;'>Groups</p>
     </li>
     <li class='transition-all duration-500 ease-in mb-5 p-4 rounded-md flex flex-row items-center cursor-pointer'
-    [ngClass]="{'shadow':activeTab == 'short_urls'}" (click)="emitToggle('short_urls')">
+    [ngClass]="{'shadow__background':activeTab == 'short_urls'}" (click)="emitToggle('short_urls')">
         <i class='fa fa-external-link-alt mr-3'></i>
         <p class='m-0' style='font-size:0.93em;'>Shortened Urls</p>
     </li>
