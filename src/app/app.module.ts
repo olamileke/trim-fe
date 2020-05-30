@@ -25,6 +25,9 @@ import { ShortenComponent } from './models/components/shorten/shorten.component'
 import { ShortenedUrlsComponent } from './components/shortened-urls/shortened-urls.component';
 import { EditGroupComponent } from './components/edit-group/edit-group.component';
 import { GroupComponent } from './components/group/group.component';
+import { UrlComponent } from './components/url/url.component';
+import { RedirectComponent } from './components/redirect/redirect.component';
+
 
 @NgModule({
   declarations: [
@@ -42,6 +45,8 @@ import { GroupComponent } from './components/group/group.component';
     ShortenedUrlsComponent,
     EditGroupComponent,
     GroupComponent,
+    UrlComponent,
+    RedirectComponent
   ],
   imports: [
     BrowserModule,

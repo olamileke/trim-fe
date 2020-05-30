@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { UrlService } from '../../services/url.service'; 
 import { NotificationService } from '../../services/notification.service';
 import { UrlData } from '../../models/url.data';
-import { environment } from '../../../environments/environment.prod';
 
 @Component({
   selector: 'app-shortened-urls',
@@ -13,7 +12,6 @@ export class ShortenedUrlsComponent implements OnInit {
 
   constructor(private url:UrlService, private notif:NotificationService) { }
   urls: any = [];
-  app_url: string = environment.client_url;
 
   ngOnInit(): void {
     this.fetch();

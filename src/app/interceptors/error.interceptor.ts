@@ -34,6 +34,27 @@ export class ErrorInterceptor implements HttpInterceptor {
             }
         }
 
+        if(url == 'groups') {
+            if(error.status == 403) {
+                if(error.error.error.message.includes('name')) {
+                    this.notif.error('group exists with specified name');
+                    displayed = true;
+                } 
+
+                if(error.error.error.message.includes('url')) {
+                    this.notif.error('group exists with specified url');
+                    displayed = true;
+                } 
+            }
+        }
+
+        if(url == 'urls') {
+            if(error.status == 403) {
+                this.notif.error('url has been shortened already');
+                displayed = true;
+            }
+        }
+
         if(!displayed) {
             this.notif.error('An error occurred');
         }

@@ -24,20 +24,6 @@ export class GroupsComponent implements OnInit {
     })
   }
 
-  delete(id:number): void {
-
-    const confirm = window.confirm('This will delete the group and all its associated urls. Proceed ?');
-
-    if(!confirm) {
-        return;
-    }
-
-    this.group.delete(id).subscribe((res:any) => {
-        this.notif.success('Group deleted successfully');
-        this.groups = this.groups.filter(group => group.id != id);
-    })
-  }
-
   getAlias(name:string): string {
     const splits = name.split(' ')
     let alias:string = '';

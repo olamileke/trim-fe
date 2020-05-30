@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { GroupService } from '../../services/group.service';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-group',
@@ -11,7 +12,8 @@ export class GroupComponent implements OnInit {
   @Input() group_id;
   group:any;
   @Output() editGroup = new EventEmitter();
-  constructor(private group_service:GroupService) { }
+  @Output() deletedGroup = new EventEmitter();
+  constructor(private group_service:GroupService, private notif:NotificationService) { }
 
   ngOnInit(): void {
     this.fetch(); 
@@ -37,5 +39,12 @@ export class GroupComponent implements OnInit {
   edit(id:number): void {
     const data = {tab:'edit_group', id:id};
     this.editGroup.emit(data)
+  }
+
+  delete(id:number): void {
+    this.group_service.delete(id).subscribe((res:any) => {
+        this.notif.success(`${this.group.name} deleted successfully`);
+        this.deletedGroup.emit('groups');
+    })
   }
 }

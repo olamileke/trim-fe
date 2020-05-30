@@ -1,0 +1,22 @@
+
+<div class='flex flex-col border-shadow bg-white p-8'>
+    <div class='flex flex-row justify-between items-center mb-5'>
+        <div class='w-16 h-16 baloo-bhaina border-shadow text-xl text-white flex flex-row
+        justify-center items-center' style='background:#335c67;'>
+            <p class='m-0 mt-1'>{{ url.short_path | slice:0:1 }}</p>
+        </div>
+        <div class='flex flex-row flex-wrap mr-6'>
+            <p class='m-0 underline mr-3 cursor-pointer'>more</p>
+            <p class='m-0 underline mr-3 cursor-pointer'>visit</p>
+        </div>
+    </div>
+    <div class='flex flex-col'>
+        <p class='m-0 mb-1'>
+            <a href='{{ app_url }}{{ url.short_path }}' target='blank'>{{ url.short_path }}</a>
+            - {{ url.num_redirects }} redirects
+        </p>
+        <p class='m-0'>
+            <a href='{{ url.path }}' target='blank'>{{ url.path }}</a></p>
+        <p class='m-0' style='font-size:0.94em'>created {{ url.created_at }}</p>
+    </div>
+</div>
