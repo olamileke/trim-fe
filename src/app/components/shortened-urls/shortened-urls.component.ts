@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { UrlService } from '../../services/url.service'; 
 import { NotificationService } from '../../services/notification.service';
 import { UrlData } from '../../models/url.data';
@@ -12,13 +12,14 @@ export class ShortenedUrlsComponent implements OnInit {
 
   constructor(private url:UrlService, private notif:NotificationService) { }
   urls: any = [];
+  @Output() viewUrl = new EventEmitter();
 
   ngOnInit(): void {
     this.fetch();
   }
 
   fetch(): void {
-    this.url.get().subscribe((res:UrlData) => {
+    this.url.getAll().subscribe((res:UrlData) => {
         this.urls = res.data;
     })
   }
@@ -29,6 +30,10 @@ export class ShortenedUrlsComponent implements OnInit {
         this.notif.success('Url deleted successfully');
         this.urls = this.urls.filter(url => url.id != id);
     })
+  }
+
+  viewUrlDetails(url_id:number): void {
+    this.viewUrl.emit({tab:'url', url_id:url_id});
   }
 
 }

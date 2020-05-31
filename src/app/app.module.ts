@@ -27,6 +27,8 @@ import { EditGroupComponent } from './components/edit-group/edit-group.component
 import { GroupComponent } from './components/group/group.component';
 import { UrlComponent } from './components/url/url.component';
 import { RedirectComponent } from './components/redirect/redirect.component';
+import { ViewUrlComponent } from './components/view-url/view-url.component';
+import { EditUrlComponent } from './components/edit-url/edit-url.component';
 
 
 @NgModule({
@@ -46,7 +48,9 @@ import { RedirectComponent } from './components/redirect/redirect.component';
     EditGroupComponent,
     GroupComponent,
     UrlComponent,
-    RedirectComponent
+    RedirectComponent,
+    ViewUrlComponent,
+    EditUrlComponent
   ],
   imports: [
     BrowserModule,

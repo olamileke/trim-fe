@@ -1,0 +1,24 @@
+
+ <div class='grid grid-cols-12 mt-6'>
+    <div class='col-start-3 col-span-7 flex flex-col'>
+        <div class='lowercase bg-white p-5 text-md mb-2 rounded-md text-gray-700 border'
+        style='border-color:rgba(0,0,0,0.06);'>
+            edit url
+        </div>
+        <form class='bg-white border rounded-lg px-6 py-8' [formGroup]='editForm'
+        (ngSubmit)='submit(editForm)' style='border-color:rgba(0,0,0,0.06);'>
+            <div class='flex flex-col mb-3'>
+                <p class='text-md text-gray-700 mb-3'>url</p>
+                <input type='text' formControlName='url' (input)='setUrlText($event.target.value)' class='text-gray-700 focus:bg-offwhite border p-3' required>
+                <p class='pt-2 text-red-600 text-xs' *ngIf='form_url.dirty && form_url.invalid'>enter a valid url</p>
+            </div>
+            <div class='flex flex-col mb-5'>
+                <p class='text-md text-gray-700 mb-3'>shortened link</p>
+                <input type='text' value='{{ url.short_path }}' class='text-gray-700 focus:bg-offwhite border p-3' readonly required>
+            </div>
+            <div>
+                <button type='submit' class='rounded focus:outline-none text-white px-3 py-2 bg-darkblue' [disabled]='editForm.invalid'>update</button>
+            </div>
+        </form>
+    </div>
+</div>

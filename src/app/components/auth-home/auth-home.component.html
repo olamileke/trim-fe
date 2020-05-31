@@ -12,6 +12,8 @@
         <app-group *ngIf='tabs.group' (editGroup)='switchTab($event.tab, $event.id)' (deletedGroup)='switchTab($event)'
         [group_id]='activeGroupID'></app-group>
         <app-shorten *ngIf='tabs.shorten'></app-shorten>
-        <app-shortened-urls *ngIf='tabs.short_urls'></app-shortened-urls>
+        <app-shortened-urls (viewUrl)='switchToUrl($event.tab, $event.url_id)' *ngIf='tabs.short_urls'></app-shortened-urls>
+        <app-view-url *ngIf='tabs.url' (editUrl)='switchTab($event.tab, $event.url_id)' [url_id]='activeUrlID'></app-view-url>
+        <app-edit-url *ngIf='tabs.edit_url' [url_id]='activeUrlID'></app-edit-url>
     </div>
 </div>

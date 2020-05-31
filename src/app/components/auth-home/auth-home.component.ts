@@ -9,10 +9,17 @@ export class AuthHomeComponent implements OnInit {
 
   constructor() { }
   tabs: any = { dashboard:true, new_group:false, edit_group:false, groups:false, group:false,
-  shorten:false, short_urls:false }
+  shorten:false, short_urls:false, url:false, edit_url:false }
+  
   activeGroupID:number;
+  activeUrlID:number;
 
   ngOnInit(): void {
+  }
+
+  switchToUrl(tab:string, url_id:number) {
+    this.switchTab(tab);
+    this.activeUrlID = url_id;
   }
 
   switchTab(tab:string, group_id=null): void {

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { environment } from '../../../environments/environment.prod';
 
 @Component({
@@ -9,10 +9,16 @@ import { environment } from '../../../environments/environment.prod';
 export class UrlComponent implements OnInit {
 
   constructor() { }
+
   @Input() url;
+  @Output() viewUrl = new EventEmitter();
   app_url:string = environment.client_url; 
-  
+
   ngOnInit(): void {
+  }
+
+  view(): void {
+    this.viewUrl.emit(this.url.id);
   }
 
 }

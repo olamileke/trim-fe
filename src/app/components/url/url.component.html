@@ -6,8 +6,12 @@
             <p class='m-0 mt-1'>{{ url.short_path | slice:0:1 }}</p>
         </div>
         <div class='flex flex-row flex-wrap mr-6'>
-            <p class='m-0 underline mr-3 cursor-pointer'>more</p>
-            <p class='m-0 underline mr-3 cursor-pointer'>visit</p>
+            <p class='m-0 underline mr-3 cursor-pointer' (click)='view()'>more</p> 
+            <p class='m-0 underline mr-3 cursor-pointer'>
+                <a href='{{ url.short_path }}' target='blank'>
+                    visit
+                </a>
+            </p>
         </div>
     </div>
     <div class='flex flex-col'>
