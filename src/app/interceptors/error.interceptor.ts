@@ -71,8 +71,10 @@ export class ErrorInterceptor implements HttpInterceptor {
         }
 
         if(!displayed) {
-            this.router.navigate(['/']);
-            this.notif.error('An error occurred');
+            if(url == 'redirects') {
+                this.router.navigate(['/']);
+            }
+                this.notif.error('An error occurred');
         }
 
         return of(error as T);

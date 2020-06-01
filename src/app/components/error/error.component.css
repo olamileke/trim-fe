@@ -1,11 +1,12 @@
 
-img, .main__content
+.main__content
 {
-    top:-5vh;
+    top:-6vh;
 }
 
 img
 {
+    top:-5vh;
     width:500px;
 }
 

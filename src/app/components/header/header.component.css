@@ -1,0 +1,27 @@
+
+
+.nav__options
+{
+    bottom:-128px;
+    left:12.5%;
+    opacity: 0;
+}
+
+.nav__options.active
+{
+    bottom: -100px;
+    opacity: 1;
+}
+
+.nav__options::before
+{
+    position:absolute;
+    top:-26px;
+    left:calc((100% - 13px)/2 - 9px);
+    display:block;
+    content:'';
+    border:13px solid rgba(0,0,0,0.5);
+    border-right-color:transparent;
+    border-left-color:transparent;
+    border-top-color:transparent;
+}
