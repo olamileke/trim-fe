@@ -9,11 +9,11 @@
         <app-new-group *ngIf='tabs.new_group'></app-new-group>
         <app-edit-group *ngIf='tabs.edit_group' [group_id]='activeGroupID'></app-edit-group>
         <app-groups *ngIf='tabs.groups' (viewGroup)='switchTab($event.tab, $event.id)'></app-groups>
-        <app-group *ngIf='tabs.group' (editGroup)='switchTab($event.tab, $event.id)' (deletedGroup)='switchTab($event)'
+        <app-group *ngIf='tabs.group' (viewUrl)='switchToUrl($event.tab, $event.url_id)' (editGroup)='switchTab($event.tab, $event.id)' (deletedGroup)='switchTab($event)'
         [group_id]='activeGroupID'></app-group>
         <app-shorten *ngIf='tabs.shorten'></app-shorten>
         <app-shortened-urls (viewUrl)='switchToUrl($event.tab, $event.url_id)' *ngIf='tabs.short_urls'></app-shortened-urls>
-        <app-view-url *ngIf='tabs.url' (editUrl)='switchTab($event.tab, $event.url_id)' [url_id]='activeUrlID'></app-view-url>
+        <app-view-url *ngIf='tabs.url' (urls)='switchTab("short_urls")' (editUrl)='switchTab($event.tab, $event.url_id)' [url_id]='activeUrlID'></app-view-url>
         <app-edit-url *ngIf='tabs.edit_url' [url_id]='activeUrlID'></app-edit-url>
     </div>
 </div>

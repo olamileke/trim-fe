@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { UrlService } from '../../services/url.service';
+import { NotificationService } from '../../services/notification.service';
 import { environment } from '../../../environments/environment.prod';
 
 @Component({
@@ -9,10 +10,11 @@ import { environment } from '../../../environments/environment.prod';
 })
 export class ViewUrlComponent implements OnInit {
 
-  constructor(private url_service:UrlService) { }
+  constructor(private url_service:UrlService, private notif:NotificationService) { }
   
   @Input() url_id;
   @Output() editUrl = new EventEmitter();
+  @Output() urls = new EventEmitter();
   url:any;
   app_url = environment.client_url;
 
@@ -32,7 +34,7 @@ export class ViewUrlComponent implements OnInit {
     }
 
     return '';
-  }
+  } 
 
   edit(url_id:number) {
     const data = {tab:'edit_url', url_id:url_id};
@@ -40,7 +42,10 @@ export class ViewUrlComponent implements OnInit {
   }
 
   delete(url_id:number) {
-
+    this.url_service.delete(url_id).subscribe((res:any) => {
+        this.urls.emit();
+        this.notif.success('Url deleted successfully');
+    })
   }
 
 }

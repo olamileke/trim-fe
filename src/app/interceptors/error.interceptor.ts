@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpEvent, HttpHandler } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { environment } from '../../environments/environment';
+import { environment } from '../../environments/environment.prod';
 import { NotificationService } from '../services/notification.service';
 
 @Injectable({ providedIn:'root' })
 export class ErrorInterceptor implements HttpInterceptor {
     
-    constructor(private notif:NotificationService) {}
+    constructor(private notif:NotificationService, private router:Router) {}
 
     intercept(req:HttpRequest<any>, next:HttpHandler): Observable<HttpEvent<any>> {
 
@@ -19,6 +20,20 @@ export class ErrorInterceptor implements HttpInterceptor {
         console.log(error);
         const url = error.url.split(environment.api_url)[1];
         let displayed = false;
+
+        if(error.status == 401) {
+            localStorage.clear();
+            this.router.navigate(['/auth/login']);
+            this.notif.error('You are not logged in');
+            displayed = true;
+        }
+
+        if(url == 'redirects') {
+            if(error.status == 404) {
+                this.router.navigate(['/error/404']);
+                displayed = true;
+            }
+        }
 
         if(url == 'users') {
             if(error.status == 403) {
@@ -56,6 +71,7 @@ export class ErrorInterceptor implements HttpInterceptor {
         }
 
         if(!displayed) {
+            this.router.navigate(['/']);
             this.notif.error('An error occurred');
         }
 

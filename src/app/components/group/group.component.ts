@@ -13,6 +13,9 @@ export class GroupComponent implements OnInit {
   group:any;
   @Output() editGroup = new EventEmitter();
   @Output() deletedGroup = new EventEmitter();
+  @Output() viewUrl = new EventEmitter();
+  viewUrls:boolean = true;
+
   constructor(private group_service:GroupService, private notif:NotificationService) { }
 
   ngOnInit(): void {
@@ -36,6 +39,10 @@ export class GroupComponent implements OnInit {
     return alias;
   }
 
+  view(param:boolean): void {
+    this.viewUrls = param;
+  }
+
   edit(id:number): void {
     const data = {tab:'edit_group', id:id};
     this.editGroup.emit(data)
@@ -46,5 +53,10 @@ export class GroupComponent implements OnInit {
         this.notif.success(`${this.group.name} deleted successfully`);
         this.deletedGroup.emit('groups');
     })
+  }
+
+  viewUrlDetails(url_id:number) {
+    const data = {tab:'url', url_id:url_id}
+    this.viewUrl.emit(data);
   }
 }

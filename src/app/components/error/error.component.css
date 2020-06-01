@@ -1,0 +1,23 @@
+
+img, .main__content
+{
+    top:-5vh;
+}
+
+img
+{
+    width:500px;
+}
+
+@media(max-width:576px)
+{
+    img
+    {
+        width:270px;
+    }
+
+    .main__content
+    {
+        top:5vh;
+    }
+}
