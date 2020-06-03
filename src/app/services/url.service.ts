@@ -9,8 +9,8 @@ export class UrlService {
 
     constructor(private http:HttpClient) {}
 
-    getAll(): Observable<UrlData> {
-        const url = environment.api_url + 'urls';
+    getAll(page:number): Observable<UrlData> {
+        const url = environment.api_url + `urls?page=${page}`;
         return this.http.get<UrlData>(url);
     }
 

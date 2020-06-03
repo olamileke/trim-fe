@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { GroupService } from '../../services/group.service';
 import { NotificationService } from '../../services/notification.service';
+import { environment } from '../../../environments/environment.prod';
 
 @Component({
   selector: 'app-group',
@@ -15,6 +16,10 @@ export class GroupComponent implements OnInit {
   @Output() deletedGroup = new EventEmitter();
   @Output() viewUrl = new EventEmitter();
   viewUrls:boolean = true;
+  urls:any;
+  redirects:any;
+  urlPages:number;
+  activeUrlPage:number = 1;
 
   constructor(private group_service:GroupService, private notif:NotificationService) { }
 
@@ -25,6 +30,9 @@ export class GroupComponent implements OnInit {
   fetch(): void {
     this.group_service.get(this.group_id).subscribe((res:any) => {
         this.group = res.data;
+        this.urls = res.data['urls'];
+        this.redirects = res.data['redirects'];
+        this.urlPages = Math.ceil(res.data['total_urls']/environment.per_page);
     })
   }
 
@@ -36,7 +44,7 @@ export class GroupComponent implements OnInit {
         alias += split[0];
     })
 
-    return alias;
+    return alias; 
   }
 
   view(param:boolean): void {

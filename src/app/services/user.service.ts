@@ -15,6 +15,11 @@ export class UserService {
         return this.http.post<UserData>(url, data, this.httpOptions);
     }
 
+    changeAvatar(data): Observable<UserData> {
+        const url = environment.api_url + 'users';
+        return this.http.patch<UserData>(url, data, this.httpOptions);
+    }
+
     httpOptions = {
         headers:new HttpHeaders({ 'Content-Type':'application/json' })
     }

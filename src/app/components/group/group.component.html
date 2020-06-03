@@ -26,9 +26,16 @@
     </div>
 
     <div class='col-start-2 col-end-11 grid grid-cols-12' *ngIf='viewUrls'>
-        <app-url [url]='url' (viewUrl)='viewUrlDetails($event)' *ngFor='let url of group.urls' class='col-span-6 mx-2 mb-4'></app-url>
+        <app-url [url]='url' (viewUrl)='viewUrlDetails($event)' *ngFor='let url of urls' class='col-span-6 mx-2 mb-4'></app-url>
+        
+        <div class='col-span-12 my-6 ml-2 flex flex-row' *ngIf='urlPages > 1'>
+            <div [ngClass]="{'bg-baseGreen':activeUrlPage == j+1, 'text-white':activeUrlPage == j+1}" class='cursor-pointer flex flex-row justify-center items-center
+             w-12 h-12 rounded mr-3 mb-3' *ngFor='let i of [].constructor(urlPages); let j = index'>
+                <p class='text-lg'>{{ j + 1 }}</p>
+            </div>
+        </div>
     </div>
     <div class='col-start-2 col-end-11 grid grid-cols-12' *ngIf='!viewUrls'>
-        <app-view-redirect [redirect]='redirect' *ngFor='let redirect of group.redirects' class='col-span-6 mx-2 mb-4'></app-view-redirect>
+        <app-view-redirect [redirect]='redirect' *ngFor='let redirect of redirects' class='col-span-6 mx-2 mb-4'></app-view-redirect>
     </div>
 </div>

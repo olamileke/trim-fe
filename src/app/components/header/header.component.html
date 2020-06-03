@@ -2,12 +2,14 @@
 <div class='p-6 flex flex-row justify-end'>
     <div class='relative'>
         <div class='flex flex-row items-center cursor-pointer' (click)='toggleOptions()'>
-            <img src='{{ user.avatar }}' class='object-cover border border-color-005 w-10 h-10 rounded-full mr-3'>
+            <img src='data:image/jpg;base64,{{ user.avatar }}' class='object-cover border border-color-005 w-10 h-10 rounded-full mr-3' #userImage>
             <p class='m-0 text-sm text-gray-700'>{{ user.name | slice:0:13 }}...</p>
             <i class='ml-2 text-gray-600 fa fa-caret-down'></i>
         </div>
-        <div [class.active]='options' class='transition-all duration-300 ease-in absolute text-white p-3 w-3/4 flex flex-col items-center text-sm rounded-lg mt-24 nav__options' style='background:rgba(0,0,0,0.5)'>
-            <p class='m-0 mb-3 cursor-pointer'>change picture</p>
+        <div [class.active]='options' class='transition-all duration-300 ease-in absolute text-white p-4 w-3/4 flex flex-col items-center text-sm rounded-lg nav__options' style='background:rgba(0,0,0,0.5)'>
+            <p class='m-0 mb-3 cursor-pointer text-center' (click)='clickFile()'>change picture</p>
+            <p class='m-0 mb-3 cursor-pointer text-center' (click)='upload()'  *ngIf='allowUpload'>update</p>
+            <input type='file' class='hidden' (change)='preview($event.target)' #fileInput>
             <p class='m-0 cursor-pointer' (click)='logout()'>logout</p>
         </div>
     </div>

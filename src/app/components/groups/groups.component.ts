@@ -18,7 +18,7 @@ export class GroupsComponent implements OnInit {
     this.fetch();
   }
 
-  fetch(): void {
+  fetch(): void { 
     this.group.getAll().subscribe((res:GroupData) => {
         this.groups = res.data;
     })

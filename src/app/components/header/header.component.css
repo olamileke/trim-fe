@@ -2,14 +2,14 @@
 
 .nav__options
 {
-    bottom:-128px;
+    top:calc(100% + 45px);
     left:12.5%;
     opacity: 0;
 }
 
 .nav__options.active
 {
-    bottom: -100px;
+    top:calc(100% + 15px);
     opacity: 1;
 }
 

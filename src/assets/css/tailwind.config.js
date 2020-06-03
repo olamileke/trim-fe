@@ -11,6 +11,7 @@ module.exports = {
         colors:{
             darkblue:"#283B42",
             offwhite:"#FBFBFB",
+            baseGreen:'#335C67'
         },
         height:{
             '1/4':'25%',
