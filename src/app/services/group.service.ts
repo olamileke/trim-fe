@@ -14,8 +14,17 @@ export class GroupService {
         return this.http.get<GroupData>(url);
     }
 
-    getAll(): Observable<GroupData> {
-        const url = environment.api_url + 'groups';
+    getAll(page=null, all=null): Observable<GroupData> {
+       
+        let url:string;
+        if(all) {
+            url = environment.api_url + 'groups?fetch_all=true';
+        }
+
+        if(page) {
+            url = environment.api_url + `groups?page=${page}`;
+        }
+
         return this.http.get<GroupData>(url);
     }
 

@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { GroupService } from '../../services/group.service';
 import { GroupData } from '../../models/group.data';
 import { NotificationService } from '../../services/notification.service';
+import { environment } from '../../../environments/environment.prod';
 
 @Component({
   selector: 'app-groups',
@@ -13,14 +14,18 @@ export class GroupsComponent implements OnInit {
   constructor(private group:GroupService, private notif:NotificationService) { }
   groups: any=[];
   @Output() viewGroup = new EventEmitter();
+  pages:number;
+  activePage:number = 1;
 
   ngOnInit(): void {
-    this.fetch();
+    this.fetch(1);
   }
 
-  fetch(): void { 
-    this.group.getAll().subscribe((res:GroupData) => {
-        this.groups = res.data;
+  fetch(page:number): void { 
+    this.group.getAll(page).subscribe((res:GroupData) => {
+        this.groups = res.data['groups'];
+        this.pages = Math.ceil(res.data['total_groups']/environment.per_page);
+        this.activePage = page;
     })
   }
 

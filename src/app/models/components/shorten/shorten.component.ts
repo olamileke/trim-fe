@@ -30,8 +30,8 @@ export class ShortenComponent implements OnInit {
   }
 
   fetch(): void {
-    this.group.getAll().subscribe((res:GroupData) => {
-        this.groups = res.data;
+    this.group.getAll(null, true).subscribe((res:GroupData) => {
+        this.groups = res.data['groups'];
         this.loaded = true;
     })
   }

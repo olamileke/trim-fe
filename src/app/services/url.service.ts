@@ -9,8 +9,13 @@ export class UrlService {
 
     constructor(private http:HttpClient) {}
 
-    getAll(page:number): Observable<UrlData> {
-        const url = environment.api_url + `urls?page=${page}`;
+    getAll(page:number, group_id=null): Observable<UrlData> {
+        let url;
+        url = environment.api_url + `urls?page=${page}`;
+
+        if(group_id) {
+            url = environment.api_url + `urls?page=${page}&group_id=${group_id}`;
+        }
         return this.http.get<UrlData>(url);
     }
 

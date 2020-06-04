@@ -22,4 +22,10 @@
             </div>
         </div>
     </div>
+    <div class='col-start-2 col-end-11 my-6 ml-2 flex flex-row' *ngIf='pages > 1'>
+        <div [ngClass]="{'bg-baseGreen':activePage == j+1, 'text-white':activePage == j+1}" class='cursor-pointer flex flex-row justify-center items-center
+         w-12 h-12 rounded mr-3 mb-3' (click)='fetch(j+1)' *ngFor='let i of [].constructor(pages); let j = index'>
+            <p class='text-lg'>{{ j + 1 }}</p>
+        </div>
+    </div>
 </div>
