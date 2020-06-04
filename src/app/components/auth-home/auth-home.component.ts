@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class AuthHomeComponent implements OnInit {
 
   constructor() { }
-  tabs: any = { dashboard:true, new_group:false, edit_group:false, groups:false, group:false,
-  shorten:false, short_urls:false, url:false, edit_url:false }
+  tabs: any = { dashboard:false, new_group:false, edit_group:false, groups:true, group:false,
+  shorten:false, short_urls:false, url:false, edit_url:false, redirects:false }
   
   activeGroupID:number;
   activeUrlID:number;

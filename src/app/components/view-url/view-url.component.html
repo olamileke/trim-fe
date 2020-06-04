@@ -1,10 +1,10 @@
 
-<div class='grid grid-cols-12 pl-16 mt-3'>
-    <div class='col-start-2 col-end-11 text-gray-800'>
+<div class='grid grid-cols-12 lg:pl-20 mt-4 sm:mt-16 lg:mt-3'>
+    <div class='col-start-2 col-end-12 lg:col-end-11 text-gray-800'>
         <div class='p-8 bg-white box-shadow flex flex-row justify-between col-span-12 mx-2 border-shadow'>
-            <div class='flex flex-row items-center'>
-                <div class='w-16 h-16 baloo-bhaina mr-5 text-xl text-white flex flex-row
-                justify-center items-center' style='background:#335c67;'>
+            <div class='flex flex-col md:flex-row md:items-center'>
+                <div class='w-16 h-16 baloo-bhaina md:mr-5 mb-3 md:mb-0 text-xl text-white flex flex-row
+                justify-center items-center bg-baseGreen'>
                     <p class='m-0 mt-1'>{{ url.short_path | slice:0:1 }} </p>
                 </div>
                 <div class='flex flex-col'>
@@ -14,7 +14,7 @@
                     <p class='m-0 text-sm'>created {{ url.created_at }}</p>
                 </div>
             </div>
-            <div class='flex flex-row items-center mr-16'>
+            <div class='flex flex-col justify-center sm:justify-start sm:flex-row items-center mr-2 sm:mr-4 md:mr-16'>
                 <p class='m-0 mr-3 underline cursor-pointer'>
                     <a class='underline' href='{{ app_url }}{{ url.short_path }}' target="blank">visit</a>
                 </p>
@@ -26,7 +26,7 @@
     <div class='underline my-4 ml-2 col-start-2 col-end-11'>
         redirects
     </div>
-    <div class='col-start-2 col-end-11 grid grid-cols-12'>
-        <app-view-redirect [redirect]='redirect' *ngFor='let redirect of url.redirects' class='col-span-6 mx-2 mb-4'></app-view-redirect>
+    <div class='col-start-2 col-end-12 lg:col-end-11 grid grid-cols-12'>
+        <app-view-redirect [redirect]='redirect' *ngFor='let redirect of url.redirects' class='col-span-12 sm:col-span-6 sm:mx-2 mb-4'></app-view-redirect>
     </div>
 </div>

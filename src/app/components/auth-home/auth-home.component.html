@@ -1,9 +1,9 @@
 
 <div class='w-screen h-min-screen grid grid-cols-12 quicksand'>
-    <div class='col-span-2 min-h-screen pt-16 bg-darkblue'>
+    <div class='hidden lg:block col-span-2 min-h-screen pt-16 bg-darkblue'>
         <app-sidebar (toggle)="switchTab($event)"></app-sidebar>
     </div>
-    <div class='col-span-10 bg-offwhite'>
+    <div class='col-span-12 min-h-screen lg:col-span-10 bg-offwhite'>
         <app-header></app-header>
         <app-dashboard *ngIf='tabs.dashboard'></app-dashboard>
         <app-new-group *ngIf='tabs.new_group'></app-new-group>
@@ -14,6 +14,7 @@
         <app-shorten *ngIf='tabs.shorten'></app-shorten>
         <app-shortened-urls (viewUrl)='switchToUrl($event.tab, $event.url_id)' *ngIf='tabs.short_urls'></app-shortened-urls>
         <app-view-url *ngIf='tabs.url' (urls)='switchTab("short_urls")' (editUrl)='switchTab($event.tab, $event.url_id)' [url_id]='activeUrlID'></app-view-url>
-        <app-edit-url *ngIf='tabs.edit_url' [url_id]='activeUrlID'></app-edit-url>
+        <app-edit-url *ngIf='tabs.edit_url' [url_id]='activeUrlID'></app-edit-url> 
+        <app-all-redirects *ngIf='tabs.redirects'></app-all-redirects>
     </div>
 </div>

@@ -28,8 +28,9 @@
         <i class='fa fa-external-link-alt mr-3'></i>
         <p class='m-0' style='font-size:0.93em;'>Shortened Urls</p>
     </li>
-    <li class='p-3 flex flex-row items-center cursor-pointer'>
+    <li class='transition-all duration-500 ease-in mb-5 p-4 rounded-md flex flex-row items-center cursor-pointer'
+    [ngClass]="{'shadow__background':activeTab == 'redirects'}" (click)="emitToggle('redirects')">
         <i class='fa fa-chart-bar mr-3'></i>
-        <p class='m-0' style='font-size:0.93em;'>Metrics</p>
+        <p class='m-0' style='font-size:0.93em;'>Redirects</p>
     </li>
 </ul>

@@ -31,6 +31,7 @@ import { ViewUrlComponent } from './components/view-url/view-url.component';
 import { EditUrlComponent } from './components/edit-url/edit-url.component';
 import { ViewRedirectComponent } from './components/view-redirect/view-redirect.component';
 import { ErrorComponent } from './components/error/error.component';
+import { AllRedirectsComponent } from './components/all-redirects/all-redirects.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { ErrorComponent } from './components/error/error.component';
     ViewUrlComponent,
     EditUrlComponent,
     ViewRedirectComponent,
-    ErrorComponent
+    ErrorComponent,
+    AllRedirectsComponent
   ],
   imports: [
     BrowserModule,

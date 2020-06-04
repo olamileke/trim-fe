@@ -1,7 +1,7 @@
 
 <div class='grid grid-cols-12 mt-4 sm:mt-16 lg:pl-20 lg:mt-3'>
     <div class='grid grid-cols-12 col-start-2 col-end-12 lg:col-end-11 text-gray-800'>
-        <app-url [url]='url' (viewUrl)='viewUrlDetails($event)' *ngFor='let url of urls' class='col-span-12 sm:col-span-6 mx-2 mb-4'></app-url>
+        <app-view-redirect [redirect]='redirect' *ngFor='let redirect of redirects' class='col-span-12 sm:col-span-6 sm:mx-2 mb-4'></app-view-redirect>
     </div>
     <div class='col-start-2 col-end-11 my-6 ml-2 flex flex-row' *ngIf='pages > 1'>
         <div [ngClass]="{'bg-baseGreen':activePage == j+1, 'text-white':activePage == j+1}" class='cursor-pointer flex flex-row justify-center items-center

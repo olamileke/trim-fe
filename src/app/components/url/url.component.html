@@ -5,7 +5,7 @@
         justify-center items-center' style='background:#335c67;'>
             <p class='m-0 mt-1'>{{ url.short_path | slice:0:1 }}</p>
         </div>
-        <div class='flex flex-row flex-wrap mr-6'>
+        <div class='flex flex-row sm:flex-col md:flex-row flex-wrap md:mr-6'>
             <p class='m-0 underline mr-3 cursor-pointer' (click)='view()'>more</p> 
             <p class='m-0 underline mr-3 cursor-pointer'>
                 <a href='{{ url.short_path }}' target='blank'>

@@ -40,7 +40,6 @@ export class ShortenComponent implements OnInit {
     this.shortenForm = this.fb.group({
         'url':['', [Validators.required, Validators.pattern(this.urlRegex)]],
         'group':['none', [Validators.required]],
-        'length':['6', [Validators.required]]
     })
   }
 
