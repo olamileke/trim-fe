@@ -1,4 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Palanquin&display=swap');
 
+.brand__text
+{
+    font-family:'Palanquin', sans-serif;
+}
 
 .nav__options
 {
