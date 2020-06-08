@@ -19,20 +19,18 @@ export class DashboardComponent implements OnInit {
   redirectsChartDataset = [];
   redirectsChartLabels = [];
   chartOptions = {responsive:true, legend:{labels:{fontFamily:'Quicksand', fontSize:15}},
-  scales:{ yAxes:[{gridLines:{display:false},ticks: { padding: 10,fontColor: "rgba(0,0,0,0.8)", beginAtZero: true, fontFamily:'Quicksand'}}],
-  xAxes: [{gridLines:{zeroLineColor:'rgba(0,0,0,0.1)', display:false}, ticks: {padding: 10,fontColor: "rgba(0,0,0,0.8)", fontFamily:'Quicksand'}}]}
+  scales:{ yAxes:[{gridLines:{display:false},ticks: { padding: 10,fontColor: "rgba(0,0,0,1)", beginAtZero: true, fontFamily:'Quicksand'}}],
+  xAxes: [{gridLines:{zeroLineColor:'rgba(0,0,0,0.1)', display:false}, ticks: {padding: 10,fontColor: "rgba(0,0,0,1)", fontFamily:'Quicksand'}}]}
   };
-  chartColors = [{backgroundColor:'rgba(51, 92, 103, 0.03)', borderColor: 'rgba(51, 92, 103, 0.3)', 
-  pointBackgroundColor: 'rgba(51, 92, 103, 0.8)', pointBorderColor: 'rgba(51, 92, 103, 0.8)',  borderWidth:1, pointRadius:1, pointBorderWidth:1}]
+  chartColors = [{backgroundColor:'rgba(0,0,0,0.009)', borderColor:'rgba(51, 92, 103, 1)', 
+  borderWidth:1, pointRadius:0, pointBorderWidth:1}]
 
   urlChartType:string = 'bar';
   urlChartDataset = [];
   urlChartLabels = [];
-  urlChartColors = [{backgroundColor:'rgba(51, 92, 103, 0.8)', borderColor: 'rgba(51, 92, 103, 0.03)', 
-  pointBackgroundColor: 'rgba(51, 92, 103, 0.8)', pointBorderColor: 'rgba(51, 92, 103, 0.8)',  borderWidth:1, pointRadius:1, pointBorderWidth:1}]
+  urlChartColors = [{backgroundColor:'rgba(209, 221, 219, 1)', borderColor:'rgba(209, 221, 219, 1)', 
+  borderWidth:1}]
  
-
-
   ngOnInit(): void {
     this.fetch();
   }
