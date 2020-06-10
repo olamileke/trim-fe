@@ -1,7 +1,7 @@
 
  
-<ul class='text-white px-8 pt-4'>
-    <li class='mb-16'>
+<ul class='text-white px-8 pt-20 lg:pt-4'>
+    <li class='hidden lg:block mb-16'>
         <div class='p-4 flex flex-row justify-center items-center bg-darkblue cursor-pointer text-white shadow' (click)="emitToggle('shorten')"
         style='border-radius:10px;'>
             <p class='m-0 mr-3 text-base'>shorten new url</p>
@@ -12,6 +12,11 @@
     [ngClass]="{'shadow__background':activeTab == 'dashboard' || activeTab == 'shorten'}" (click)="emitToggle('dashboard')">
         <i class='fa fa-align-left mr-3'></i>
         <p class='m-0' style='font-size:0.93em;'>Dashboard</p>
+    </li>
+    <li class='lg:hidden transition-all duration-500 ease-in mb-5 p-4 rounded-md flex flex-row items-center cursor-pointer'
+    [ngClass]="{'shadow__background':activeTab == 'shorten'}" (click)="emitToggle('shorten')">
+        <i class='fa fa-link mr-3'></i>
+        <p class='m-0' style='font-size:0.93em;'>Shorten Url</p>
     </li>
     <li class='transition-all duration-500 ease-in mb-5 p-4 rounded-md flex flex-row items-center cursor-pointer'
     [ngClass]="{'shadow__background':activeTab == 'new_group'}" (click)="emitToggle('new_group')">

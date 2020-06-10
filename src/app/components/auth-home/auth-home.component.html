@@ -1,10 +1,10 @@
 
 <div class='w-screen h-min-screen grid grid-cols-12 quicksand'>
-    <div class='hidden lg:block col-span-2 min-h-screen pt-16 bg-darkblue'>
-        <app-sidebar (toggle)="switchTab($event)"></app-sidebar>
+    <div [class.active]='displaySidebar' class='z-40 transition-all duration-500 ease-in fixed lg:relative lg:block col-span-2 min-h-screen pt-16 bg-darkblue sidebar__parent'>
+        <app-sidebar (toggle)="switchTab($event, null, true)"></app-sidebar>
     </div>
     <div class='col-span-12 min-h-screen lg:col-span-10 bg-offwhite'>
-        <app-header></app-header>
+        <app-header (displaySidebar)='toggleSidebar()'></app-header>
         <app-dashboard *ngIf='tabs.dashboard'></app-dashboard>
         <app-new-group *ngIf='tabs.new_group'></app-new-group>
         <app-edit-group *ngIf='tabs.edit_group' [group_id]='activeGroupID'></app-edit-group>
@@ -17,4 +17,7 @@
         <app-edit-url *ngIf='tabs.edit_url' [url_id]='activeUrlID'></app-edit-url> 
         <app-all-redirects *ngIf='tabs.redirects'></app-all-redirects>
     </div>
+
+    <div [ngClass]="{'opacity-0':!displaySidebar, 'opacity-100':displaySidebar, 'z-10':displaySidebar, 'z--9999':!displaySidebar}" (click)='toggleSidebar(true)' class='transition-opacity duration-500 ease-in fixed w-screen h-screen'
+    style='background:rgba(0,0,0,0.2)'></div>
 </div>

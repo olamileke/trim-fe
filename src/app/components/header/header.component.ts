@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter , ViewChild } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { NotificationService } from '../../services/notification.service';
 import { UserService } from '../../services/user.service';
@@ -20,6 +20,8 @@ export class HeaderComponent implements OnInit {
   allowedExtensions = ['jpg', 'jpeg', 'png'];
   newAvatarString:any;
   allowUpload:boolean = false;
+  @Output() displaySidebar = new EventEmitter();
+  barsClicked:boolean = false;
 
   ngOnInit(): void {
     this.fetch();
@@ -80,6 +82,14 @@ export class HeaderComponent implements OnInit {
     // this.user_service.changeAvatar(formData).subscribe((res:any) => {
     //     alert(JSON.stringify(res));
     // })
+  }
+
+  setBarsClickedState(): void {
+    this.barsClicked = !this.barsClicked;
+  }
+
+  display(): void {
+    this.displaySidebar.emit();
   }
 
 }

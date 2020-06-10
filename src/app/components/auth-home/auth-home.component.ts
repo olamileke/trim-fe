@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-auth-home',
@@ -13,6 +14,8 @@ export class AuthHomeComponent implements OnInit {
   
   activeGroupID:number;
   activeUrlID:number;
+  displaySidebar:boolean = false;
+  @ViewChild(HeaderComponent) header;
 
   ngOnInit(): void {
   }
@@ -22,7 +25,7 @@ export class AuthHomeComponent implements OnInit {
     this.activeUrlID = url_id;
   }
 
-  switchTab(tab:string, group_id=null): void {
+  switchTab(tab:string, group_id=null, sidebar=null): void {
 
     if(group_id) {
         this.activeGroupID = group_id;
@@ -33,6 +36,22 @@ export class AuthHomeComponent implements OnInit {
     })
 
     this.tabs[tab] = true;
+
+    if(screen.width <= 1025 && sidebar) {
+        this.toggleSidebar();
+    }
+  }
+
+  toggleSidebar(layer=false): void {
+
+    if(layer) {
+        if(!this.displaySidebar) {
+            return;
+        }
+    }
+
+    this.displaySidebar = !this.displaySidebar;
+    this.header.setBarsClickedState();
   }
 
 }

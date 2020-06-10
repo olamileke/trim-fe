@@ -1,6 +1,11 @@
 
-<div class='py-6 pl-12 pr-8 flex flex-row items-center'>
-    <div class='text-lg mr-auto text-gray-700'>trim</div>
+<div class='p-6 flex flex-row pr-6 lg:pr-10 justify-between items-center'>
+    <div class='flex flex-row lg:pl-4 items-center z-50'>
+        <div (click)='display()' [ngClass]="{'bg-baseGreen':!barsClicked, 'fixed':barsClicked}" class='transition-colors ease-in duration-500 w-12 h-12 mr-2 cursor-pointer rounded-full flex flex-row items-center justify-center lg:hidden'>
+            <i class='fas fa-bars text-white'></i> 
+        </div>
+        <p class='text-md hidden lg:inline'>trim</p>
+    </div>
     <div class='relative'>
         <div class='flex flex-row items-center cursor-pointer' (click)='toggleOptions()'>
             <img src='data:image/jpg;base64,{{ user.avatar }}' class='object-cover border border-color-005 w-10 h-10 rounded-full mr-3' #userImage>

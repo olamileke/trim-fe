@@ -39,11 +39,16 @@ export class DashboardComponent implements OnInit {
     this.stats.get().subscribe((res:any) => {
         this.totals = res.data['totals'];
         this.redirectsChartLabels = Object.keys(res.data['redirect_stats']);
-        this.urlChartLabels = Object.keys(res.data['url_stats']);
-
         const redirectDataset = {data:Object.values(res.data['redirect_stats']), label:'redirects in the last week'};
         this.redirectsChartDataset.push(redirectDataset);
-        const urlDataset = {data:Object.values(res.data['url_stats']), label:'most visited short links'};
+
+        const url_stats = res.data['url_stats'];
+        const length = 5 - Object.values(url_stats).length;
+        for(let i=0; i < length; i++) {
+            url_stats[''] = 0;
+        }
+        this.urlChartLabels = Object.keys(url_stats);
+        const urlDataset = {data:Object.values(url_stats), label:'most visited short links'};
         this.urlChartDataset.push(urlDataset);
         
         this.redirects = res.data['redirects'];

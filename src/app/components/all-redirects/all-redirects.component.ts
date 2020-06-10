@@ -21,7 +21,7 @@ export class AllRedirectsComponent implements OnInit {
   fetch(page:number): void {
     this.redirect.getAll(page).subscribe((res:any) => {
         this.redirects = res.data['redirects'];
-        this.pages = Math.ceil(res.data['total_redirects']/environment.per_page)
+        this.pages = Math.ceil( res.data['total_redirects'] / (environment.per_page * 2) )
         this.activePage = page;
     })
   }

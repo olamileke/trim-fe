@@ -2,9 +2,9 @@
 
 <div class='grid grid-cols-12 h-4/5 flex flex-row items-center sm:h-auto sm:items-start sm:mt-32 sm:pt-12 md:pt-0 md:mt-48 lg:mt-10' *ngIf='loaded'>
     <div class='col-start-2 col-end-12 md:col-start-3 md:col-end-11 lg:col-end-10'>
-        <div *ngIf='shortened' class='p-5 flex flex-row border border-color-005 rounded mb-2' style='background:#DFF0D8; color:#468847'>
-            <div class='leading-7'>
-                Link shortened successfully - <a class='underline'>{{ shortenedUrl }}</a>
+        <div *ngIf='shortened' class='p-5 bg-white flex flex-row border rounded-md mb-2' style='border-color:rgba(0,0,0,0.06);'>
+            <div class='leading-7 text-gray-700'>
+                Link shortened successfully - <a href='{{ shortenedUrl }}' target='blank' class='underline'>{{ shortenedUrl }}</a>
             </div> 
         </div>
         <div *ngIf='!shortened' class='lowercase bg-white p-5 text-md mb-2 rounded-md text-gray-700 border'

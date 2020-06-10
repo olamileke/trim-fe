@@ -1,1 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap');
+
+.z--9999
+{
+    z-index:-9999;
+}
+
+@media(max-width:1025px)
+{
+    .sidebar__parent
+    {
+        width:40vw;
+        left:-40vw;
+    }
+
+    .sidebar__parent.active
+    {
+        left:0;
+    }
+}
+
+@media(max-width:576px)
+{
+    .sidebar__parent
+    {
+        width:70vw;
+        left:-70vw;
+    }
+}

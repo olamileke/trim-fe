@@ -25,7 +25,7 @@
                     <i class='fa fa-reply text-white'></i>
                 </div>
                 <p class='m-0 mt-8 mb-auto md:mb-0 text-sm text-gray-600'>redirects</p>
-                <p class='m-0 text-2xl'>{{ totals.redirects }}</p>
+                <p class='m-0 text-2xl'>{{ totals.rxedirects }}</p>
             </div>
         </div>
    </div>
@@ -34,8 +34,8 @@
             <canvas class='bg-white p-6 rounded-lg' baseChart [chartType]='urlChartType' [labels]='urlChartLabels' [datasets]='urlChartDataset'
             [colors]='urlChartColors' [options]='chartOptions' style='box-shadow:0px 3px 8px 3px rgba(0,0,0,0.1);'></canvas>
         </div>
-        <div class='mt-5 md:mt-0 col-span-12 md:col-start-9 md:col-end-13 flex flex-col lg:mx-2'>
-            <p class='m-0 mb-5'>Recent Redirects</p>
+        <div class='mt-5 md:mt-0 col-span-12 md:col-start-9 md:col-end-13 flex flex-col lg:mx-2' *ngIf='redirects.length > 0'>
+            <p class='m-0 mb-5'>recent redirects</p>
             <div class='flex flex-row flex-wrap md:flex-col'>
                 <app-view-redirect class='w-full sm:w-1/2 md:w-full mb-4 md:mb-3' *ngFor='let redirect of redirects' [redirect]='redirect'></app-view-redirect>
             </div>
