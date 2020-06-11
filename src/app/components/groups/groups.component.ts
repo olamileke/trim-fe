@@ -9,13 +9,14 @@ import { environment } from '../../../environments/environment.prod';
   templateUrl: './groups.component.html',
   styleUrls: ['./groups.component.css']
 })
-export class GroupsComponent implements OnInit {
+export class GroupsComponent implements OnInit { 
 
   constructor(private group:GroupService, private notif:NotificationService) { }
   groups: any=[];
   @Output() viewGroup = new EventEmitter();
   pages:number;
   activePage:number = 1;
+  fetched:boolean = false;
 
   ngOnInit(): void {
     this.fetch(1);
@@ -26,6 +27,7 @@ export class GroupsComponent implements OnInit {
         this.groups = res.data['groups'];
         this.pages = Math.ceil(res.data['total_groups']/environment.per_page);
         this.activePage = page;
+        this.fetched = true;
     })
   }
 

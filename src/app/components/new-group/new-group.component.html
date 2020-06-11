@@ -1,6 +1,6 @@
 
-<div class='grid grid-cols-12 h-4/5 flex flex-row items-center sm:h-auto sm:items-start sm:mt-32 sm:pt-12 md:pt-0 md:mt-48 lg:mt-10'>
-    <div class='col-start-2 col-end-12 md:col-start-3 md:col-end-11 lg:col-end-10'>
+<div class='grid grid-cols-12 h-5/6 flex flex-row items-center pt-4 xs:pt-12 sm:h-auto sm:items-start sm:mt-20 md:pt-8 lg:pt-0 md:mt-48 lg:mt-10'>
+    <div class='col-span-12 px-5 sm:px-0 sm:col-start-2 sm:col-end-12 md:col-start-3 md:col-end-11 lg:col-end-10'>
         <div class='lowercase bg-white p-5 text-md mb-2 rounded-md text-gray-700 border'
         style='border-color:rgba(0,0,0,0.06);'>
             Create a new URL group 
@@ -11,7 +11,7 @@
                 <p class='text-md text-gray-700 mb-3'>name</p>
                 <input type='text' formControlName='name' class='text-gray-700 focus:bg-offwhite border p-3' required>
                 <p class='pt-2 text-red-600 text-xs' *ngIf='name.dirty && name.invalid'>name must be at least 5 characters</p>
-            </div>
+            </div> 
 
             <div class='flex flex-col mb-5'>
                 <p class='text-md text-gray-700 mb-3'>url</p>

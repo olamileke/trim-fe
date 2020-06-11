@@ -1,10 +1,10 @@
 
 
-<div class='grid grid-cols-12 h-4/5 flex flex-row items-center sm:h-auto sm:items-start sm:mt-32 sm:pt-12 md:pt-0 md:mt-48 lg:mt-10' *ngIf='loaded'>
-    <div class='col-start-2 col-end-12 md:col-start-3 md:col-end-11 lg:col-end-10'>
+<div class='grid grid-cols-12 h-5/6 flex flex-row items-center pt-4 xs:pt-12 sm:h-auto sm:items-start sm:mt-20 md:pt-8 lg:pt-0 md:mt-48 lg:mt-10' *ngIf='loaded'>
+    <div class='col-span-12 px-5 sm:px-0 sm:col-start-2 sm:col-end-12 md:col-start-3 md:col-end-11 lg:col-end-10'>
         <div *ngIf='shortened' class='p-5 bg-white flex flex-row border rounded-md mb-2' style='border-color:rgba(0,0,0,0.06);'>
             <div class='leading-7 text-gray-700'>
-                Link shortened successfully - <a href='{{ shortenedUrl }}' target='blank' class='underline'>{{ shortenedUrl }}</a>
+                link shortened successfully - <a href='{{ shortenedUrl }}' target='blank'>{{ shortenedUrl }}</a>
             </div> 
         </div>
         <div *ngIf='!shortened' class='lowercase bg-white p-5 text-md mb-2 rounded-md text-gray-700 border'
@@ -15,7 +15,7 @@
         (ngSubmit)='submit(shortenForm)' style='border-color:rgba(0,0,0,0.06);'>
             <div class='flex flex-col mb-5'>
                 <p class='text-md text-gray-700 mb-3'>group</p>
-                <select formControlName='group' class='text-gray-700 focus:bg-offwhite border p-3' (change)="toggleUrlText()">
+                <select formControlName='group' class='bg-white text-gray-700 focus:bg-offwhite border p-3' (change)="toggleUrlText()">
                     <option value='none' selected>None</option>
                     <option *ngFor='let group of groups' value='{{ group.id }}'>{{ group.name }}</option>
                 </select>

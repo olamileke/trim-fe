@@ -1,20 +1,20 @@
 
-<div class='p-6 flex flex-row pr-6 lg:pr-10 justify-between items-center'>
+<div class='flex flex-row py-8 sm:py-10 lg:py-6 pl-5 pr-6 sm:px-6 justify-between items-center'>
     <div class='flex flex-row lg:pl-4 items-center z-50'>
-        <div (click)='display()' [ngClass]="{'bg-baseGreen':!barsClicked, 'fixed':barsClicked}" class='transition-colors ease-in duration-500 w-12 h-12 mr-2 cursor-pointer rounded-full flex flex-row items-center justify-center lg:hidden'>
+        <div (click)='display()' [ngClass]="{'bg-baseGreen':!barsClicked, 'fixed':barsClicked}" class='transition-colors ease-in duration-500 w-12 h-12 sm:w-16 sm:h-16 mr-2 cursor-pointer rounded-full flex flex-row items-center justify-center lg:hidden'>
             <i class='fas fa-bars text-white'></i> 
         </div>
         <p class='text-md hidden lg:inline'>trim</p>
     </div>
     <div class='relative'>
         <div class='flex flex-row items-center cursor-pointer' (click)='toggleOptions()'>
-            <img src='data:image/jpg;base64,{{ user.avatar }}' class='object-cover border border-color-005 w-10 h-10 rounded-full mr-3' #userImage>
+            <img src='/assets/images/leke.JPG' class='object-cover border border-color-005 w-10 h-10 lg:rounded-full mr-3' #userImage>
             <p class='m-0 text-sm text-gray-700'>{{ user.name | slice:0:13 }}...</p>
             <div class='w-5 h-5 flex flex-row rounded-lg ml-2 justify-center items-center' style='background:rgba(0,0,0,0.05)'>
                 <i class='text-gray-600 fa fa-caret-down text-xs'></i>
             </div>   
         </div>
-        <div [class.active]='options' class='transition-all duration-300 ease-in absolute text-white p-4 w-3/4 flex flex-col items-center text-sm rounded-lg nav__options' style='background:rgba(0,0,0,0.5)'>
+        <div [ngClass]="{'active':options, 'z--9999':!options, 'z-20':options}" class='transition-all duration-300 ease-in absolute text-white p-4 w-3/4 flex flex-col items-center text-sm rounded-lg nav__options' style='background:rgba(0,0,0,0.5)'>
             <p class='m-0 mb-3 cursor-pointer text-center' (click)='clickFile()'>change picture</p>
               <p class='m-0 mb-3 cursor-pointer text-center' (click)='upload()'  *ngIf='allowUpload'>update</p>
             <input type='file' class='hidden' (change)='preview($event.target)' #fileInput>

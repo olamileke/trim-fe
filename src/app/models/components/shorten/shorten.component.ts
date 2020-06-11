@@ -60,7 +60,7 @@ export class ShortenComponent implements OnInit {
 
   setUrl(url:string): void {
 
-    if(this.selectedGroupUrl != 'none') {
+    if(this.selectedGroupUrl.toLowerCase() != 'none') {
         if(!url.startsWith(this.selectedGroupUrl)) {
             this.shortenForm.get('url').setValue(this.selectedGroupUrl);
         }

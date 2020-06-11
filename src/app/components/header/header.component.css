@@ -30,3 +30,16 @@
     border-left-color:transparent;
     border-top-color:transparent;
 }
+
+.z--9999
+{
+    z-index:-9999;
+}
+
+@media(max-width:1025px)
+{
+    img
+    {
+        border-radius:13px;
+    }
+}
