@@ -16,6 +16,7 @@ export class ShortenedUrlsComponent implements OnInit {
   @Output() viewUrl = new EventEmitter();
   pages:number;
   activePage:number;
+  fetched:boolean = false;
 
   ngOnInit(): void {
     this.fetch(1);
@@ -27,6 +28,7 @@ export class ShortenedUrlsComponent implements OnInit {
         const pages = res.data['total_urls'] / environment.per_page;
         this.pages = Math.ceil(pages);
         this.activePage = page;
+        this.fetched = true;
     })
   }
 

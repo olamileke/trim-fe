@@ -17,6 +17,7 @@ export class ViewUrlComponent implements OnInit {
   @Output() urls = new EventEmitter();
   url:any;
   app_url = environment.client_url;
+  fetched:boolean = false;
 
   ngOnInit(): void {
     this.fetch();
@@ -25,6 +26,7 @@ export class ViewUrlComponent implements OnInit {
   fetch(): void {
     this.url_service.get(this.url_id).subscribe((res:any) => {
         this.url = res.data;
+        this.fetched = true;
     })
   }
 

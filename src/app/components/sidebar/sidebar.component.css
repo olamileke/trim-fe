@@ -3,3 +3,11 @@
 {
     box-shadow:0px 3px 8px 3px rgba(0,0,0,0.1);
 }
+
+@media(max-width:576px)
+{
+    :host
+    {
+        width:100%;
+    }
+}

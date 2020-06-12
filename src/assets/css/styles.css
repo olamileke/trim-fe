@@ -625,6 +625,25 @@ video {
   }
 }
 
+.alias
+    {
+  width: 4rem;
+  height: 4rem;
+  font-family:'Baloo bhaina 2', cursive;
+  font-size: 1.25rem;
+  --text-opacity: 1;
+  color: #fff;
+  color: rgba(255, 255, 255, var(--text-opacity));
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  --bg-opacity: 1;
+  background-color: #335C67;
+  background-color: rgba(51, 92, 103, var(--bg-opacity));
+  box-shadow:-4px 6px 5px 5px rgba(0,0,0,0.06);
+}
+
 .space-y-0 > :not(template) ~ :not(template) {
   --space-y-reverse: 0;
   margin-top: calc(0px * calc(1 - var(--space-y-reverse)));
@@ -18341,6 +18360,25 @@ video {
 }
 
 @media (min-width: 340px) {
+  .xs\:alias
+    {
+    width: 4rem;
+    height: 4rem;
+    font-family:'Baloo bhaina 2', cursive;
+    font-size: 1.25rem;
+    --text-opacity: 1;
+    color: #fff;
+    color: rgba(255, 255, 255, var(--text-opacity));
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    --bg-opacity: 1;
+    background-color: #335C67;
+    background-color: rgba(51, 92, 103, var(--bg-opacity));
+    box-shadow:-4px 6px 5px 5px rgba(0,0,0,0.06);
+  }
+
   .xs\:space-y-0 > :not(template) ~ :not(template) {
     --space-y-reverse: 0;
     margin-top: calc(0px * calc(1 - var(--space-y-reverse)));
@@ -36058,6 +36096,25 @@ video {
 }
 
 @media (min-width: 576px) {
+  .sm\:alias
+    {
+    width: 4rem;
+    height: 4rem;
+    font-family:'Baloo bhaina 2', cursive;
+    font-size: 1.25rem;
+    --text-opacity: 1;
+    color: #fff;
+    color: rgba(255, 255, 255, var(--text-opacity));
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    --bg-opacity: 1;
+    background-color: #335C67;
+    background-color: rgba(51, 92, 103, var(--bg-opacity));
+    box-shadow:-4px 6px 5px 5px rgba(0,0,0,0.06);
+  }
+
   .sm\:space-y-0 > :not(template) ~ :not(template) {
     --space-y-reverse: 0;
     margin-top: calc(0px * calc(1 - var(--space-y-reverse)));
@@ -53775,6 +53832,25 @@ video {
 }
 
 @media (min-width: 769px) {
+  .md\:alias
+    {
+    width: 4rem;
+    height: 4rem;
+    font-family:'Baloo bhaina 2', cursive;
+    font-size: 1.25rem;
+    --text-opacity: 1;
+    color: #fff;
+    color: rgba(255, 255, 255, var(--text-opacity));
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    --bg-opacity: 1;
+    background-color: #335C67;
+    background-color: rgba(51, 92, 103, var(--bg-opacity));
+    box-shadow:-4px 6px 5px 5px rgba(0,0,0,0.06);
+  }
+
   .md\:space-y-0 > :not(template) ~ :not(template) {
     --space-y-reverse: 0;
     margin-top: calc(0px * calc(1 - var(--space-y-reverse)));
@@ -71492,6 +71568,25 @@ video {
 }
 
 @media (min-width: 1025px) {
+  .lg\:alias
+    {
+    width: 4rem;
+    height: 4rem;
+    font-family:'Baloo bhaina 2', cursive;
+    font-size: 1.25rem;
+    --text-opacity: 1;
+    color: #fff;
+    color: rgba(255, 255, 255, var(--text-opacity));
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    --bg-opacity: 1;
+    background-color: #335C67;
+    background-color: rgba(51, 92, 103, var(--bg-opacity));
+    box-shadow:-4px 6px 5px 5px rgba(0,0,0,0.06);
+  }
+
   .lg\:space-y-0 > :not(template) ~ :not(template) {
     --space-y-reverse: 0;
     margin-top: calc(0px * calc(1 - var(--space-y-reverse)));
@@ -89209,6 +89304,25 @@ video {
 }
 
 @media (min-width: 1280px) {
+  .xl\:alias
+    {
+    width: 4rem;
+    height: 4rem;
+    font-family:'Baloo bhaina 2', cursive;
+    font-size: 1.25rem;
+    --text-opacity: 1;
+    color: #fff;
+    color: rgba(255, 255, 255, var(--text-opacity));
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    --bg-opacity: 1;
+    background-color: #335C67;
+    background-color: rgba(51, 92, 103, var(--bg-opacity));
+    box-shadow:-4px 6px 5px 5px rgba(0,0,0,0.06);
+  }
+
   .xl\:space-y-0 > :not(template) ~ :not(template) {
     --space-y-reverse: 0;
     margin-top: calc(0px * calc(1 - var(--space-y-reverse)));

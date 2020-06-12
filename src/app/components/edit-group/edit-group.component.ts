@@ -17,6 +17,7 @@ export class EditGroupComponent implements OnInit {
   editForm:FormGroup;
   groupName:string;
   urlRegex:string = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
+  fetched:boolean = false;
 
   ngOnInit(): void {
     this.fetch();
@@ -26,6 +27,7 @@ export class EditGroupComponent implements OnInit {
     this.group.get(this.group_id).subscribe((res:any) => {
         this.groupName = res.data.name;
         this.createForm(res.data.name, res.data.url);
+        this.fetched = true;
     })
   }
 

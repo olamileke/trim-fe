@@ -17,6 +17,7 @@ export class EditUrlComponent implements OnInit {
   url:any;  
   editForm:FormGroup;
   urlRegex:string = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
+  fetched:boolean = false;
 
   ngOnInit(): void {
     this.fetch();
@@ -25,6 +26,7 @@ export class EditUrlComponent implements OnInit {
   fetch(): void {
     this.url_service.get(this.url_id).subscribe((res:any) => {
         this.url = res.data;
+        this.fetched = true;
         this.createForm(this.url.path)
     })
   }

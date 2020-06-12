@@ -13,6 +13,7 @@ export class AllRedirectsComponent implements OnInit {
   redirects:any;
   pages:number;
   activePage:number;
+  fetched:boolean = false;
 
   ngOnInit(): void {
     this.fetch(1);
@@ -23,6 +24,7 @@ export class AllRedirectsComponent implements OnInit {
         this.redirects = res.data['redirects'];
         this.pages = Math.ceil( res.data['total_redirects'] / (environment.per_page * 2) )
         this.activePage = page;
+        this.fetched = true;
     })
   }
 

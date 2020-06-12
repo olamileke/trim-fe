@@ -2,6 +2,15 @@
 
 @tailwind components;
 
+@responsive
+{
+    .alias
+    {
+        @apply w-16 h-16 baloo-bhaina text-xl text-white flex flex-row justify-center items-center bg-baseGreen;
+        box-shadow:-4px 6px 5px 5px rgba(0,0,0,0.06);
+    }
+}
+
 @tailwind utilities;
 
 @responsive

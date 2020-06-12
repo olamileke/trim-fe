@@ -19,7 +19,7 @@ export class ShortenComponent implements OnInit {
   shortenForm:FormGroup;
   groups:any;
   urlRegex:string = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
-  loaded:boolean = false;
+  fetched:boolean;
   shortened:boolean = false;
   selectedGroupUrl:string = 'None';
   shortenedUrl:string = '';
@@ -32,7 +32,7 @@ export class ShortenComponent implements OnInit {
   fetch(): void {
     this.group.getAll(null, true).subscribe((res:GroupData) => {
         this.groups = res.data['groups'];
-        this.loaded = true;
+        this.fetched = true;
     })
   }
 

@@ -11,8 +11,16 @@ export class SidebarComponent implements OnInit {
 
   @Output() toggle = new EventEmitter();
   activeTab: string = 'dashboard';
+  responsive:boolean = false;
 
   ngOnInit(): void {
+    this.determineResponsive();
+  }
+
+  determineResponsive(): void {
+    if(screen.width < 1025) {
+        this.responsive = true;
+    }
   }
 
   emitToggle(tab:string): void {

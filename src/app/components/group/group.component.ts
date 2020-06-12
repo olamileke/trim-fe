@@ -19,6 +19,7 @@ export class GroupComponent implements OnInit {
   @Output() deletedGroup = new EventEmitter();
   @Output() viewUrl = new EventEmitter();
   viewUrls:boolean = true;
+  fetched:boolean = false;
   urls:any;
   redirects:any;
   urlPages:number;
@@ -40,6 +41,7 @@ export class GroupComponent implements OnInit {
         this.redirects = res.data['redirects'];
         this.urlPages = Math.ceil(res.data['num_urls']/environment.per_page);
         this.redirectPages = Math.ceil(res.data['num_redirects']/environment.per_page);
+        this.fetched = true;
     })
   }
 
