@@ -17,15 +17,8 @@ export class RedirectComponent implements OnInit {
 
   checkUrl(): void {
     const short_path = this.rt.snapshot.paramMap.get('url');
-    let source = 'Unknown';
 
-    if(document.referrer) {
-        const anchor = document.createElement('a');
-        anchor.href = document.referrer;
-        source = anchor.host;
-    }
-
-    const data = {short_path:short_path, source:source};
+    const data = {short_path:short_path};
     this.redirect.check(data).subscribe((res:any) => {
         location.replace(res.data.path);
     })

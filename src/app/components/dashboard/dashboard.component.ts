@@ -46,6 +46,7 @@ export class DashboardComponent implements OnInit {
         const length = 5 - Object.values(url_stats).length;
         for(let i=0; i < length; i++) {
             url_stats[''] = 0;
+            url_stats[' '] = 0;
         }
         this.urlChartLabels = Object.keys(url_stats);
         const urlDataset = {data:Object.values(url_stats), label:'most visited short links'};
