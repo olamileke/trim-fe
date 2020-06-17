@@ -9,13 +9,13 @@
         (ngSubmit)='submit(newForm)' style='border-color:rgba(0,0,0,0.06);'>
             <div class='flex flex-col mb-3'>
                 <p class='text-md text-gray-700 mb-3'>name</p>
-                <input type='text' formControlName='name' class='focus:outline-none text-gray-700 focus:bg-offwhite border p-3' required>
+                <input type='text' formControlName='name' class='focus:outline-none text-gray-700 focus:bg-offwhite border p-3' placeholder="group name" required>
                 <p class='pt-2 text-red-600 text-xs' *ngIf='name.dirty && name.invalid'>name must be at least 5 characters</p>
             </div> 
 
             <div class='flex flex-col mb-5'>
                 <p class='text-md text-gray-700 mb-3'>url</p>
-                <input type='text' formControlName='url' class='focus:outline-none text-gray-700 focus:bg-offwhite border p-3' required>
+                <input type='text' formControlName='url' class='focus:outline-none text-gray-700 focus:bg-offwhite border p-3' placeholder="https://" required>
                 <p class='pt-2 text-red-600 text-xs' *ngIf='url.dirty && url.invalid'>enter a valid url</p>
             </div>
             <div>

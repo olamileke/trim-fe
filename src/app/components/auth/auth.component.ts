@@ -20,6 +20,7 @@ export class AuthComponent implements OnInit {
   private notif:NotificationService, private auth:AuthService) { }
 
   type:string;
+  token:string;
   signupForm:FormGroup;
   loginForm:FormGroup;
   fetching:boolean = false;
@@ -30,6 +31,12 @@ export class AuthComponent implements OnInit {
 
   determineAuth(): void {
     this.type = this.rte.snapshot.paramMap.get('type');
+    this.token = this.rte.snapshot.paramMap.get('token');
+
+    if(this.token) {
+        this.type = 'login';
+        this.activateAccount(this.token);
+    }
 
     if(this.type == 'signup' || this.type == 'login') {
         this.createSignupForm();
@@ -37,7 +44,15 @@ export class AuthComponent implements OnInit {
         return;
     }
 
-    this.router.navigate(['/error/404']);
+    this.router.navigate(['/error/404'])
+  }
+
+  activateAccount(token:string): void {
+    const data = {'token':token};
+
+    this.user_service.activate(data).subscribe((res:UserData) => {
+        this.notif.success('Signup completed!');
+    })
   }
 
   createSignupForm(): void {

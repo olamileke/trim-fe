@@ -15,6 +15,7 @@ const routes: Routes = [{ path:'', component:HomeComponent, canActivate:[GuestGu
                         { path:'dashboard', component:AuthHomeComponent, canActivate:[AuthGuard] },
                         { path:':url', component:RedirectComponent },
                         { path:'error/:error_code', component:ErrorComponent},
+                        { path:'account/activate/:token', component:AuthComponent},
                         { path:'**', component:ErrorComponent},
 						];	
 

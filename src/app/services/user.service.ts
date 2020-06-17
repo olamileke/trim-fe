@@ -20,6 +20,11 @@ export class UserService {
         return this.http.patch<UserData>(url, data, this.httpOptions);
     }
 
+    activate(data): Observable<UserData> {
+        const url = environment.api_url + 'users?type=activate';
+        return this.http.patch<UserData>(url, data, this.httpOptions);
+    }
+
     httpOptions = {
         headers:new HttpHeaders({ 'Content-Type':'application/json' })
     }
