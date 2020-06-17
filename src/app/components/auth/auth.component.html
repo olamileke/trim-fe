@@ -42,7 +42,7 @@
                     <button type='submit' class='focus:outline-none text-white px-3 py-2 text-sm mb-3 rounded bg-darkblue' style='width:min-content' [disabled]='loginForm.invalid'>login</button>
                     <div class="flex flex-row">
                         <a (click)="toggleForm('signup')" class='mr-2 cursor-pointer text-black text-sm text-gray-600 mb-1'>signup</a>  
-                        <a href='/' class='text-black text-sm text-gray-600'>forgot password</a>
+                        <p class='m-0 cursor-pointer text-black text-sm text-gray-600' (click)='forgotPassword()'>forgot password</p>
                     </div>        
                 </div>
             </form>

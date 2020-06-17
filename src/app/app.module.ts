@@ -33,6 +33,7 @@ import { EditUrlComponent } from './components/edit-url/edit-url.component';
 import { ViewRedirectComponent } from './components/view-redirect/view-redirect.component';
 import { ErrorComponent } from './components/error/error.component';
 import { AllRedirectsComponent } from './components/all-redirects/all-redirects.component';
+import { PasswordResetComponent } from './components/password-reset/password-reset.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { AllRedirectsComponent } from './components/all-redirects/all-redirects.
     EditUrlComponent,
     ViewRedirectComponent,
     ErrorComponent,
-    AllRedirectsComponent
+    AllRedirectsComponent,
+    PasswordResetComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
 
 import { UserData } from '../../models/user.data';
 import { AuthService } from '../../services/auth.service';
@@ -90,6 +89,19 @@ export class AuthComponent implements OnInit {
         localStorage.setItem('trim_user', JSON.stringify(res.data.user));
         this.router.navigate(['/dashboard']);
         this.notif.success('Logged in successfully');
+    })
+  }
+
+  forgotPassword(): void {
+    if(this.loginEmail.invalid) {
+        this.notif.error('Enter a valid email');
+        return;
+    }
+
+    const data = {'email':this.loginEmail.value};
+
+    this.auth.verifyEmail(data).subscribe((res:any) => {
+        this.notif.success('Complete the process at your email');
     })
   }
 

@@ -32,6 +32,16 @@ export class AuthService {
         this.router.navigate(['/auth/login']);
     }
 
+    verifyEmail(data): Observable<any> {
+        const url = environment.api_url + 'password/reset?action=mail';
+        return this.http.post<any>(url, data, this.httpOptions);
+    }
+
+    verifyResetToken(data): Observable<any> {
+        const url = environment.api_url + 'password/reset?action=verify';
+        return this.http.post<any>(url, data);
+    }
+
     httpOptions = {
         headers:new HttpHeaders({ 'Content-Type':'application/json'} )
     }

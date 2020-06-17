@@ -21,7 +21,12 @@ export class UserService {
     }
 
     activate(data): Observable<UserData> {
-        const url = environment.api_url + 'users?type=activate';
+        const url = environment.api_url + 'users?field=activation_token';
+        return this.http.patch<UserData>(url, data, this.httpOptions);
+    }
+
+    changePassword(data): Observable<UserData> {
+        const url = environment.api_url + 'users?field=password';
         return this.http.patch<UserData>(url, data, this.httpOptions);
     }
 

@@ -40,6 +40,44 @@ export class ErrorInterceptor implements HttpInterceptor {
                 this.notif.error('User with that email exists');
                 displayed = true;
             }
+
+            if(error.status == 400) {
+                if(error.error.error.message.includes('invalid')) {
+                    this.notif.error('Invalid reset token');
+                }
+                else {
+                    this.notif.error('Expired reset token');
+                }
+                this.router.navigate(['/auth/login']);
+                displayed = true;   
+            }
+        }
+
+        if(url == 'users?type=activate') {
+            if(error.status == 400) {
+                this.notif.error('User does not exist');
+                displayed = true;
+            }
+        }
+
+        if(url == 'password/reset?action=mail') {
+            if(error.status == 404) {
+                this.notif.error('No user exists with that email');
+                displayed = true;
+            }
+        }
+
+        if(url == 'password/reset?action=verify') {
+            if(error.status == 400) {
+                if(error.error.error.message.includes('invalid')) {
+                    this.notif.error('Invalid reset token');
+                }
+                else {
+                    this.notif.error('Expired reset token');
+                }
+                this.router.navigate(['/auth/login']);
+                displayed = true;
+            }
         }
 
         if(url == 'authenticate') {
