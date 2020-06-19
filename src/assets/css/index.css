@@ -25,9 +25,14 @@
         font-family:'Baloo bhaina 2', cursive;
     }
 
-    .border-shadow
+    .medium-shadow
     {
         box-shadow:-4px 6px 5px 5px rgba(0,0,0,0.06);
+    }
+
+    .light-shadow
+    {
+        box-shadow:0px 3px 8px 3px rgba(0,0,0,0.1);
     }
 
     .border-color-005

@@ -5,6 +5,17 @@
     font-family:'Palanquin', sans-serif;
 }
 
+img
+{
+    border-radius:50%;
+}
+
+span
+{
+    content:'';
+    height:2px;
+}
+
 .nav__options
 {
     top:calc(100% + 45px);
@@ -34,4 +45,12 @@
 .z--9999
 {
     z-index:-9999;
+}
+
+@media(max-width:1025px) 
+{
+    img
+    {
+        border-radius:13px;
+    }
 }

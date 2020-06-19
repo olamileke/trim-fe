@@ -34,6 +34,8 @@ import { ViewRedirectComponent } from './components/view-redirect/view-redirect.
 import { ErrorComponent } from './components/error/error.component';
 import { AllRedirectsComponent } from './components/all-redirects/all-redirects.component';
 import { PasswordResetComponent } from './components/password-reset/password-reset.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -68,7 +70,8 @@ import { PasswordResetComponent } from './components/password-reset/password-res
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    ChartsModule
+    ChartsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     HttpInterceptors,

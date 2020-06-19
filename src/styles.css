@@ -1,5 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
+button:active
+{
+    background:rgba(40, 59, 66, 0.9);
+}
+
 @media(max-width:576px) and (min-width:340px)
 {
     .form__parent__height

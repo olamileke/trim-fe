@@ -18349,9 +18349,14 @@ video {
   font-family:'Baloo bhaina 2', cursive;
 }
 
-.border-shadow
+.medium-shadow
     {
   box-shadow:-4px 6px 5px 5px rgba(0,0,0,0.06);
+}
+
+.light-shadow
+    {
+  box-shadow:0px 3px 8px 3px rgba(0,0,0,0.1);
 }
 
 .border-color-005
@@ -36084,9 +36089,14 @@ video {
     font-family:'Baloo bhaina 2', cursive;
   }
 
-  .xs\:border-shadow
+  .xs\:medium-shadow
     {
     box-shadow:-4px 6px 5px 5px rgba(0,0,0,0.06);
+  }
+
+  .xs\:light-shadow
+    {
+    box-shadow:0px 3px 8px 3px rgba(0,0,0,0.1);
   }
 
   .xs\:border-color-005
@@ -53820,9 +53830,14 @@ video {
     font-family:'Baloo bhaina 2', cursive;
   }
 
-  .sm\:border-shadow
+  .sm\:medium-shadow
     {
     box-shadow:-4px 6px 5px 5px rgba(0,0,0,0.06);
+  }
+
+  .sm\:light-shadow
+    {
+    box-shadow:0px 3px 8px 3px rgba(0,0,0,0.1);
   }
 
   .sm\:border-color-005
@@ -71556,9 +71571,14 @@ video {
     font-family:'Baloo bhaina 2', cursive;
   }
 
-  .md\:border-shadow
+  .md\:medium-shadow
     {
     box-shadow:-4px 6px 5px 5px rgba(0,0,0,0.06);
+  }
+
+  .md\:light-shadow
+    {
+    box-shadow:0px 3px 8px 3px rgba(0,0,0,0.1);
   }
 
   .md\:border-color-005
@@ -89292,9 +89312,14 @@ video {
     font-family:'Baloo bhaina 2', cursive;
   }
 
-  .lg\:border-shadow
+  .lg\:medium-shadow
     {
     box-shadow:-4px 6px 5px 5px rgba(0,0,0,0.06);
+  }
+
+  .lg\:light-shadow
+    {
+    box-shadow:0px 3px 8px 3px rgba(0,0,0,0.1);
   }
 
   .lg\:border-color-005
@@ -107028,9 +107053,14 @@ video {
     font-family:'Baloo bhaina 2', cursive;
   }
 
-  .xl\:border-shadow
+  .xl\:medium-shadow
     {
     box-shadow:-4px 6px 5px 5px rgba(0,0,0,0.06);
+  }
+
+  .xl\:light-shadow
+    {
+    box-shadow:0px 3px 8px 3px rgba(0,0,0,0.1);
   }
 
   .xl\:border-color-005

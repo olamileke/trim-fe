@@ -2,13 +2,13 @@
 <div *ngIf='groups.length == 0 && fetched' class='w-full flex flex-row justify-center items-center' style='height:calc(80vh - 144px)'>
     <div class='flex flex-col'>
         <i class='em em-anguished text-2xl xs:text-3xl sm:text-4xl mb-2'></i>
-        <p class='m-0 ml-1 text-lg'>you do not have any groups</p>
+        <p class='m-0 ml-1 text-lg'>no groups to display</p>
     </div>
 </div>
  
 <div class='grid grid-cols-12 px-5 sm:px-0 mt-4 lg:pl-20 lg:mt-3' *ngIf='groups.length > 0 && fetched'>
     <div class='grid grid-cols-12 px-2 sm:px-0 col-span-12 sm:col-start-2 sm:col-end-12 lg:col-end-11 text-gray-800'>
-        <div class='col-span-12 sm:col-span-6 bg-white sm:mx-2 mb-4 p-8 border-shadow' *ngFor='let group of groups'> 
+        <div class='col-span-12 sm:col-span-6 bg-white sm:mx-2 mb-4 p-8 medium-shadow' *ngFor='let group of groups'> 
             <div class='flex flex-row justify-between items-center'>
                 <div class='alias'>
                     <p class='m-0 mt-1'>{{ getAlias(group.name) }}</p>

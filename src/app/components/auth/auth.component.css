@@ -4,11 +4,6 @@ input:focus
     background:rgba(0,0,0,0.01);
 }
 
-button:active
-{
-    background:rgba(40, 59, 66, 0.9);
-}
-
 form
 {
     width:313px
