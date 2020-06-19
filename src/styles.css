@@ -1,5 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 
+.back__icon
+{
+    position:fixed;
+    right:6vw;
+    bottom:6vw;
+    width:32px;
+    height:32px;
+    cursor:pointer;
+    z-index:10;
+}
+
 button:active
 {
     background:rgba(40, 59, 66, 0.9);

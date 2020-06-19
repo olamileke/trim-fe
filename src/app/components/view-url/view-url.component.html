@@ -21,7 +21,7 @@
                 <p class='m-0 underline cursor-pointer' (click)='delete(url.id)'>delete</p>
             </div>
         </div>
-    </div>
+    </div> 
     <div class='underline my-4 ml-2 col-span-12 sm:col-start-2 sm:col-end-12'>
         redirects
     </div>
@@ -29,3 +29,5 @@
         <app-view-redirect [redirect]='redirect' *ngFor='let redirect of url.redirects' class='col-span-12 sm:col-span-6 sm:mx-2 mb-4'></app-view-redirect>
     </div>
 </div>
+
+<img src='/assets/images/dashboard/reply.png' class='back__icon' (click)='emit()'>

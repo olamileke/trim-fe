@@ -12,9 +12,13 @@ export class ViewUrlComponent implements OnInit {
 
   constructor(private url_service:UrlService, private notif:NotificationService) { }
   
-  @Input() url_id;
+  @Input() url_id:number;
+  @Input() group_id:number;
+  @Input() from_group:boolean;
   @Output() editUrl = new EventEmitter();
   @Output() urls = new EventEmitter();
+  @Output() viewUrls = new EventEmitter();
+  @Output() viewGroup = new EventEmitter();
   url:any;
   app_url = environment.client_url;
   fetched:boolean = false;
@@ -48,6 +52,24 @@ export class ViewUrlComponent implements OnInit {
         this.urls.emit();
         this.notif.success('Url deleted successfully');
     })
+  }
+
+  emitViewUrls():void {
+    this.viewUrls.emit('short_urls');
+  }
+
+  emitViewGroup(): void {
+    const data = {tab:'group', id:this.group_id};
+    this.viewGroup.emit(data);
+  }
+
+  emit():void {
+    if(this.from_group) {
+        this.emitViewGroup();
+        return;
+    }
+
+    this.emitViewUrls();
   }
 
 }

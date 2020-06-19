@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UrlService } from '../../services/url.service';
 import { NotificationService } from '../../services/notification.service';
@@ -14,6 +14,7 @@ export class EditUrlComponent implements OnInit {
   private notif:NotificationService) {}
 
   @Input() url_id;
+  @Output() viewUrl = new EventEmitter();
   url:any;  
   editForm:FormGroup;
   urlRegex:string = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
@@ -53,6 +54,11 @@ export class EditUrlComponent implements OnInit {
 
   get form_url(): any {
     return this.editForm.get('url');
+  }
+
+  emitViewUrl():void {
+    const data = {tab:'url', url_id:this.url_id};
+    this.viewUrl.emit(data);
   }
 
 }

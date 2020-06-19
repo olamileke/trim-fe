@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GroupService } from '../../services/group.service';
 import { NotificationService } from '../../services/notification.service';
@@ -14,6 +14,7 @@ export class EditGroupComponent implements OnInit {
   private notif:NotificationService) { }
 
   @Input() group_id;
+  @Output() viewGroup = new EventEmitter();
   editForm:FormGroup;
   groupName:string;
   urlRegex:string = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
@@ -42,6 +43,11 @@ export class EditGroupComponent implements OnInit {
     this.group.edit(this.group_id, form.value).subscribe((res:any) => {
         this.notif.success('Group edited successfully');
     })
+  }
+
+  emitViewGroup(): void {
+    const data = {tab:'group', id:this.group_id}; 
+    this.viewGroup.emit(data);
   }
 
   get name() {

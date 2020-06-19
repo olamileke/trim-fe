@@ -14,15 +14,17 @@ export class AuthHomeComponent implements OnInit {
   
   activeGroupID:number;
   activeUrlID:number;
+  urlFromGroup:boolean;
   displaySidebar:boolean = false;
   @ViewChild(HeaderComponent) header;
 
   ngOnInit(): void {
   }
 
-  switchToUrl(tab:string, url_id:number) {
+  switchToUrl(tab:string, url_id:number, from_group=false) {
     this.switchTab(tab);
     this.activeUrlID = url_id;
+    this.urlFromGroup = from_group;
   }
 
   switchTab(tab:string, group_id=null, sidebar=null): void {

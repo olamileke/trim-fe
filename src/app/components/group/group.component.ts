@@ -18,6 +18,7 @@ export class GroupComponent implements OnInit {
   @Output() editGroup = new EventEmitter();
   @Output() deletedGroup = new EventEmitter();
   @Output() viewUrl = new EventEmitter();
+  @Output() viewGroups = new EventEmitter();
   viewUrls:boolean = true;
   fetched:boolean = false;
   urls:any;
@@ -89,5 +90,9 @@ export class GroupComponent implements OnInit {
   viewUrlDetails(url_id:number) {
     const data = {tab:'url', url_id:url_id}
     this.viewUrl.emit(data);
+  }
+
+  emitViewGroups():void {
+    this.viewGroups.emit('groups');
   }
 }

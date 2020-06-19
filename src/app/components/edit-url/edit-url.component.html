@@ -1,10 +1,10 @@
 
  <div class='grid grid-cols-12 form__parent__height flex flex-row items-center pt-4 xs:pt-0 sm:items-start sm:mt-20 md:pt-8 lg:pt-0 md:mt-48 lg:mt-10' *ngIf='fetched'>
     <div class='col-span-12 px-5 sm:px-0 sm:col-start-2 sm:col-end-12 md:col-start-3 md:col-end-11 lg:col-end-10'>
-        <div class='lowercase bg-white p-5 text-md mb-2 rounded-md text-gray-700 shadow-lg'>
+        <div class='lowercase bg-white p-5 text-md mb-2 text-gray-700 shadow-lg'>
             edit {{ url.short_path }}
-        </div>
-        <form class='bg-white shadow-lg rounded-lg px-6 py-8' [formGroup]='editForm' (ngSubmit)='submit(editForm)'>
+        </div> 
+        <form class='bg-white shadow-lg px-6 py-8' [formGroup]='editForm' (ngSubmit)='submit(editForm)'>
             <div class='flex flex-col mb-3'>
                 <p class='text-md text-gray-700 mb-3'>url</p>
                 <input type='text' formControlName='url' (input)='setUrlText($event.target.value)' class='lowercase focus:outline-none text-gray-700 focus:bg-offwhite border p-3' required>
@@ -20,3 +20,5 @@
         </form>
     </div>
 </div>
+
+<img src='/assets/images/dashboard/reply.png' class='back__icon' (click)='emitViewUrl()'>
