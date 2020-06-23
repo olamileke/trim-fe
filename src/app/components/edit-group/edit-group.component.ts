@@ -10,8 +10,7 @@ import { NotificationService } from '../../services/notification.service';
 })
 export class EditGroupComponent implements OnInit {
 
-  constructor(private group:GroupService, private fb:FormBuilder,
-  private notif:NotificationService) { }
+  constructor(private fb:FormBuilder, private notif:NotificationService, private group_service:GroupService) { }
 
   @Input() group_id;
   @Output() viewGroup = new EventEmitter();
@@ -25,8 +24,7 @@ export class EditGroupComponent implements OnInit {
   }
 
   fetch(): void {
-    this.group.get(this.group_id).subscribe((res:any) => {
-        this.groupName = res.data.name;
+    this.group_service.get(this.group_id).subscribe((res:any) => {
         this.createForm(res.data.name, res.data.url);
         this.fetched = true;
     })
@@ -40,7 +38,7 @@ export class EditGroupComponent implements OnInit {
   }
 
   submit(form:FormGroup): void {
-    this.group.edit(this.group_id, form.value).subscribe((res:any) => {
+    this.group_service.edit(this.group_id, form.value).subscribe((res:any) => {
         this.notif.success('Group edited successfully');
     })
   }

@@ -6,11 +6,11 @@
             <span [ngClass]="{'bg-darkblue':!barsClicked, 'bg-white':barsClicked}" class='absolute transition-colors duration-300 ease-in top-0 mt-3 w-3/5 left-0'></span>
             <span [ngClass]="{'bg-darkblue':!barsClicked, 'bg-white':barsClicked}" class='absolute transition-colors duration-300 ease-in top-0 mt-6 w-full left-0'></span>
         </div>
-        <p class='text-md hidden lg:inline'>trim</p>
+        <p class='text-md hidden lg:inline'>trim</p> 
     </div>
     <div class='relative'>
         <div class='flex flex-row items-center cursor-pointer' (click)='toggleOptions()'>
-            <img src='/assets/images/leke.JPG' class='lg:rounded-none object-cover border border-color-005 w-10 h-10 lg:rounded-full mr-3' #userImage>
+            <img src='data:image/png;base64,{{ user.avatar }}' class='lg:rounded-none object-cover border border-color-005 w-10 h-10 lg:rounded-full mr-3' #userImage>
             <p class='m-0 text-sm text-gray-700'>{{ user.name | slice:0:13 }}...</p>
             <div class='w-5 h-5 flex flex-row rounded-lg ml-2 justify-center items-center' style='background:rgba(0,0,0,0.05)'>
                 <i class='text-gray-600 fa fa-caret-down text-xs'></i>
@@ -18,7 +18,7 @@
         </div>
         <div [ngClass]="{'active':options, 'z--9999':!options, 'z-20':options}" class='transition-all duration-300 ease-in absolute text-white p-4 w-3/4 flex flex-col items-center text-sm rounded-lg nav__options' style='background:rgba(0,0,0,0.5)'>
             <p class='m-0 mb-3 cursor-pointer text-center' (click)='clickFile()'>change picture</p>
-              <p class='m-0 mb-3 cursor-pointer text-center' (click)='upload()'  *ngIf='allowUpload'>update</p>
+            <p class='m-0 mb-3 cursor-pointer text-center' (click)='upload()'  *ngIf='allowUpload'>update</p>
             <input type='file' class='hidden' (change)='preview($event.target)' #fileInput>
             <p class='m-0 cursor-pointer' (click)='logout()'>logout</p>
         </div>

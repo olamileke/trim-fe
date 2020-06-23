@@ -5,6 +5,7 @@
     {
       "name": "app",
       "installMode": "prefetch",
+      "updateMode": "prefetch",
       "resources": {
         "files": [
           "/favicon.ico",
@@ -24,6 +25,20 @@
           "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
         ]
       }
+    }
+  ],
+  "dataGroups": [
+    {
+        "name": "api-backend",
+        "urls": [
+            "/**"
+        ],
+        "cacheConfig": {
+            "maxSize": 10,
+            "maxAge": "7d",
+            "strategy": "freshness",
+            "timeout": "8s"
+        }
     }
   ]
 }

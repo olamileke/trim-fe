@@ -13,11 +13,11 @@ export class UserService {
     signup(data): Observable<UserData> {
         const url = environment.api_url + 'users';
         return this.http.post<UserData>(url, data, this.httpOptions);
-    }
+    } 
 
     changeAvatar(data): Observable<UserData> {
-        const url = environment.api_url + 'users';
-        return this.http.patch<UserData>(url, data, this.httpOptions);
+        const url = environment.api_url + 'users?field=avatar';
+        return this.http.patch<UserData>(url, data);
     }
 
     activate(data): Observable<UserData> {

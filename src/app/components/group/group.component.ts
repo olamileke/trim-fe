@@ -75,13 +75,13 @@ export class GroupComponent implements OnInit {
     this.viewUrls = param;
   }
 
-  edit(id:number): void {
-    const data = {tab:'edit_group', id:id};
+  edit(): void {
+    const data = {tab:'edit_group', id:this.group_id};
     this.editGroup.emit(data)
   }
 
-  delete(id:number): void {
-    this.group_service.delete(id).subscribe((res:any) => {
+  delete(): void {
+    this.group_service.delete(this.group_id).subscribe((res:any) => {
         this.notif.success(`${this.group.name} deleted successfully`);
         this.deletedGroup.emit('groups');
     })

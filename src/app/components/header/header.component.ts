@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit {
   allowedExtensions = ['jpg', 'jpeg', 'png'];
   newAvatarString:any;
   allowUpload:boolean = false;
+  file:File;
   @Output() displaySidebar = new EventEmitter();
   barsClicked:boolean = false;
 
@@ -53,10 +54,10 @@ export class HeaderComponent implements OnInit {
             reader.onload = (e) => {
                 this.userImage.nativeElement.src = e.target.result;
                 this.newAvatarString = e.target.result;
-                alert(this.newAvatarString);
             }
 
             this.allowUpload = true;
+            this.file = files[0];
             reader.readAsDataURL(files[0]);
         }
     }
@@ -73,15 +74,22 @@ export class HeaderComponent implements OnInit {
     if(file.size > 5000000) {
         this.notif.error('Image is too large!');
         return false;
-    }
+    } 
 
     return true;
   }
 
   upload():void {
-    // this.user_service.changeAvatar(formData).subscribe((res:any) => {
-    //     alert(JSON.stringify(res));
-    // })
+    const formData = new FormData();
+
+    formData.append('avatar', this.file);
+    this.user_service.changeAvatar(formData).subscribe((res:any) => {
+        localStorage.setItem('trim_user', JSON.stringify(res.data.user));
+        this.user.avatar = res.data.user.avatar;
+        this.notif.success('Avatar changed!');
+        this.allowUpload = !this.allowUpload;
+        this.options = !this.options;
+    })
   }
 
   setBarsClickedState(): void {

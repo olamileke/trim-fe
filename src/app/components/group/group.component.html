@@ -1,9 +1,9 @@
 
-<div class='grid grid-cols-12 px-5 sm:px-0 lg:pl-20 mt-4 lg:mt-3' *ngIf='fetched'>
+<div class='grid grid-cols-12 px-5 sm:px-0 lg:pl-20 lg:mt-3' *ngIf='fetched'>
     <div class='grid grid-cols-12 col-span-12 sm:col-start-2 sm:col-end-12 lg:col-end-11 text-gray-800'>
-        <div class='p-8 bg-white flex flex-row justify-between col-span-12 mx-2 medium-shadow'>
+        <div class='p-8 bg-white flex flex-row justify-between col-span-12 mx-2 shadow-lg'>
             <div class='flex flex-col sm:flex-row sm:items-center'>
-                <div class='alias sm:mr-5 mb-3 sm:mb-0'>
+                <div class='alias sm:mr-5 mb-3 sm:mb-0'> 
                     <p class='m-0 mt-1'>{{ getAlias(group.name) }} </p>
                 </div>
                 <div class='flex flex-col'>
@@ -14,8 +14,8 @@
                 </div>
             </div>
             <div class='flex flex-row items-center mr-4 sm:mr-16'>
-                <p class='m-0 mr-3 underline cursor-pointer' (click)='edit(group.id)'>edit</p>
-                <p class='m-0 underline cursor-pointer' (click)='delete(group.id)'>delete</p>
+                <p class='m-0 mr-3 underline cursor-pointer' (click)='edit()'>edit</p>
+                <p class='m-0 underline cursor-pointer' (click)='delete()'>delete</p>
             </div>
         </div>
     </div>
