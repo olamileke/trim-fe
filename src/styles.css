@@ -3,8 +3,8 @@
 .back__icon
 {
     position:fixed;
-    right:6vw;
-    bottom:6vw;
+    right:8vh;
+    bottom:6vh;
     width:32px;
     height:32px;
     cursor:pointer;
@@ -14,6 +14,15 @@
 button:active
 {
     background:rgba(40, 59, 66, 0.9);
+}
+
+@media(max-width:1025px)
+{
+    .back__icon
+    {
+        right:6vw;
+        bottom:6vw;
+    }
 }
 
 @media(max-width:576px) and (min-width:340px)

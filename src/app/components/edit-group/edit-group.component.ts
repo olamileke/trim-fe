@@ -27,6 +27,7 @@ export class EditGroupComponent implements OnInit {
     this.group_service.get(this.group_id).subscribe((res:any) => {
         this.createForm(res.data.name, res.data.url);
         this.fetched = true;
+        this.groupName = res.data.name;
     })
   }
 

@@ -10,7 +10,7 @@
     .sidebar__parent
     {
         width:40vw;
-        left:-40vw;
+        left:calc(-40vw - 1px);
     }
 
     .sidebar__parent.active

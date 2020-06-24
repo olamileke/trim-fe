@@ -36,8 +36,8 @@
         </div>
         <div class='mt-5 lg:mt-0 col-span-12 lg:col-start-9 lg:col-end-13 flex flex-col lg:mx-2' *ngIf='redirects.length > 0'>
             <p class='m-0 mb-5'>recent redirects</p>
-            <div class='flex flex-row flex-wrap md:flex-col'>
-                <app-view-redirect class='w-full sm:w-1/2 lg:w-full mb-4 md:mb-3' *ngFor='let redirect of redirects' [redirect]='redirect'></app-view-redirect>
+            <div class='flex flex-row flex-wrap md:flex-col grid grid-cols-12'>
+                <app-view-redirect class='col-span-12 sm:col-span-6 lg:col-span-12 sm:mr-4 md:mr-3 lg:mr-0 mb-4 md:mb-3' *ngFor='let redirect of redirects' [redirect]='redirect'></app-view-redirect>
             </div>
         </div>
    </div>

@@ -98,10 +98,31 @@ export class ErrorInterceptor implements HttpInterceptor {
                     this.notif.error('group exists with specified url');
                     displayed = true;
                 } 
+            } 
+        }
+
+        if(url.includes('groups') && url.length == 8) {
+            if(error.status == 403) {
+                if(error.error.message.includes('name')) {
+                    this.notif.error('group exists with specified name');
+                    displayed = true;
+                } 
+    
+                if(error.error.message.includes('url')) {
+                    this.notif.error('group exists with specified url');
+                    displayed = true;
+                } 
             }
         }
 
         if(url == 'urls') {
+            if(error.status == 403) {
+                this.notif.error('url has been shortened already');
+                displayed = true;
+            }
+        }
+
+        if(url.includes('urls') && url.length == 6) {
             if(error.status == 403) {
                 this.notif.error('url has been shortened already');
                 displayed = true;
