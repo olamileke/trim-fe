@@ -641,7 +641,6 @@ video {
   --bg-opacity: 1;
   background-color: #335C67;
   background-color: rgba(51, 92, 103, var(--bg-opacity));
-  box-shadow:-4px 6px 5px 5px rgba(0,0,0,0.06);
 }
 
 .space-y-0 > :not(template) ~ :not(template) {
@@ -18381,7 +18380,6 @@ video {
     --bg-opacity: 1;
     background-color: #335C67;
     background-color: rgba(51, 92, 103, var(--bg-opacity));
-    box-shadow:-4px 6px 5px 5px rgba(0,0,0,0.06);
   }
 
   .xs\:space-y-0 > :not(template) ~ :not(template) {
@@ -36122,7 +36120,6 @@ video {
     --bg-opacity: 1;
     background-color: #335C67;
     background-color: rgba(51, 92, 103, var(--bg-opacity));
-    box-shadow:-4px 6px 5px 5px rgba(0,0,0,0.06);
   }
 
   .sm\:space-y-0 > :not(template) ~ :not(template) {
@@ -53863,7 +53860,6 @@ video {
     --bg-opacity: 1;
     background-color: #335C67;
     background-color: rgba(51, 92, 103, var(--bg-opacity));
-    box-shadow:-4px 6px 5px 5px rgba(0,0,0,0.06);
   }
 
   .md\:space-y-0 > :not(template) ~ :not(template) {
@@ -71604,7 +71600,6 @@ video {
     --bg-opacity: 1;
     background-color: #335C67;
     background-color: rgba(51, 92, 103, var(--bg-opacity));
-    box-shadow:-4px 6px 5px 5px rgba(0,0,0,0.06);
   }
 
   .lg\:space-y-0 > :not(template) ~ :not(template) {
@@ -89345,7 +89340,6 @@ video {
     --bg-opacity: 1;
     background-color: #335C67;
     background-color: rgba(51, 92, 103, var(--bg-opacity));
-    box-shadow:-4px 6px 5px 5px rgba(0,0,0,0.06);
   }
 
   .xl\:space-y-0 > :not(template) ~ :not(template) {

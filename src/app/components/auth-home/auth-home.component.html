@@ -1,9 +1,9 @@
 
 <div class='w-screen h-min-screen grid grid-cols-12 quicksand'>
-    <div [class.active]='displaySidebar' class='z-40 transition-all duration-500 ease-in flex flex-row items-center md:items-start fixed lg:relative lg:block col-span-2 min-h-screen pt-16 bg-darkblue sidebar__parent'>
+    <div [class.active]='displaySidebar' class='z-40 transition-all duration-500 ease-in flex flex-row items-center md:items-start lg:block h-screen pt-16 bg-darkblue sidebar__parent'>
         <app-sidebar (toggle)="switchTab($event, null, true)"></app-sidebar>
     </div>  
-    <div class='col-span-12 min-h-screen lg:col-span-10 bg-offwhite'>
+    <div class='col-span-12 min-h-screen lg:col-start-3 lg:col-end-13 bg-offwhite'>
         <app-header (displaySidebar)='toggleSidebar()'></app-header>
 
         <app-dashboard *ngIf='tabs.dashboard'></app-dashboard> 

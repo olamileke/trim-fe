@@ -7,7 +7,7 @@
     </div>
 </div>
 
-<div class='grid grid-cols-12 px-5 sm:px-0 lg:pl-20 lg:mt-3' *ngIf='fetched && urls.length > 0'>
+<div class='grid grid-cols-12 px-5 sm:px-0 lg:pl-20' *ngIf='fetched && urls.length > 0'>
     <div class='grid grid-cols-12 col-span-12 sm:col-start-2 sm:col-end-12 lg:col-end-11 text-gray-800'>
         <app-url [url]='url' (viewUrl)='viewUrlDetails($event)' *ngFor='let url of urls' class='col-span-12 sm:col-span-6 mx-2 mb-4'></app-url>
     </div>

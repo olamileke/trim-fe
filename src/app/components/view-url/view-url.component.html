@@ -8,14 +8,14 @@
                 </div>
                 <div class='flex flex-col'>
                     <p class='m-0 lg:mb-1 mt-4 lg:mt-0'><b>{{ url.short_path }}</b></p>
-                    <p class='m-0'><a href='{{ url.path }}'>{{ url.path }}</a></p>  
+                    <p class='m-0'><a href='{{ url.path }}' target='_blank'>{{ url.path }}</a></p>  
                     <p class='m-0'>{{ getGroupName(url.group_name) }}{{ url.redirects.length }} redirects</p>
                     <p class='m-0 lg:text-sm'>created {{ url.created_at }}</p>
                 </div>
             </div>
             <div class='mt-2 sm:mt-0 flex flex-row items-center mr-2 sm:mr-4 md:mr-16'>
                 <p class='m-0 mr-3 underline cursor-pointer'>
-                    <a class='underline' href='{{ app_url }}{{ url.short_path }}' target="blank">visit</a>
+                    <a class='underline' href='{{ app_url }}{{ url.short_path }}' target="_blank">visit</a>
                 </p>
                 <p class='m-0 mr-3 underline cursor-pointer' (click)='edit(url.id)'>edit</p>
                 <p class='m-0 underline cursor-pointer' (click)='delete(url.id)'>delete</p>
