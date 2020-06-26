@@ -43,12 +43,12 @@ export class DashboardComponent implements OnInit {
         this.redirectsChartDataset.push(redirectDataset);
 
         const url_stats = res.data['url_stats'];
-        const length = 5 - Object.values(url_stats).length;
+        const urlLabels = Object.keys(url_stats);
+        const length = 5 - urlLabels.length;
         for(let i=0; i < length; i++) {
-            url_stats[''] = 0;
-            url_stats[' '] = 0;
+            urlLabels.push('');
         }
-        this.urlChartLabels = Object.keys(url_stats);
+        this.urlChartLabels = urlLabels;
         const urlDataset = {data:Object.values(url_stats), label:'most visited short links'};
         this.urlChartDataset.push(urlDataset);
         

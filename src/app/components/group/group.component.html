@@ -1,30 +1,42 @@
 
-<div class='grid grid-cols-12 px-5 sm:px-0 lg:pl-20 lg:mt-3' *ngIf='fetched'>
+<div class='grid grid-cols-12 px-5 sm:px-0 lg:pl-20' *ngIf='fetched'>
     <div class='grid grid-cols-12 col-span-12 sm:col-start-2 sm:col-end-12 lg:col-end-11 text-gray-800'>
-        <div class='p-8 bg-white flex flex-row justify-between col-span-12 mx-2 shadow-lg'>
+        <div class='p-6 sm:p-8 bg-white flex flex-row justify-between col-span-12 mx-2 shadow-lg'>
             <div class='flex flex-col sm:flex-row sm:items-center'>
                 <div class='alias sm:mr-5 mb-3 sm:mb-0'> 
                     <p class='m-0 mt-1'>{{ getAlias(group.name) }} </p>
                 </div>
                 <div class='flex flex-col'>
                     <p class='m-0 mb-1'><b>{{ group.name }}</b></p>
-                    <p class='m-0'><a href='{{ group.url }}' target='_blank'>{{ group.url }}</a></p>  
+                    <p class='m-0 break-all'><a href='{{ group.url }}' target='_blank'>{{ group.url }}</a></p>  
                     <p class='m-0'>{{ group.num_urls }} urls. {{ group.num_redirects }} redirects</p>
-                    <p class='m-0 text-sm'>created {{ group.created_at }}</p>
+                    <p class='m-0 text-base break-all'>created {{ group.created_at }}</p>
+                    <div class='flex flex-row sm:hidden mt-1'>
+                        <p class='m-0 mr-3 underline cursor-pointer' (click)='edit()'>edit</p>
+                        <p class='m-0 underline cursor-pointer' (click)='delete()'>delete</p>
+                    </div>
                 </div>
             </div>
-            <div class='flex flex-row items-center mr-4 sm:mr-16'>
+            <div class='hidden sm:flex flex-row items-center mr-4 sm:mr-16'>
                 <p class='m-0 mr-3 underline cursor-pointer' (click)='edit()'>edit</p>
                 <p class='m-0 underline cursor-pointer' (click)='delete()'>delete</p>
             </div>
         </div>
     </div>
     <div class='flex flex-row col-span-12 sm:col-start-2 sm:col-end-12 my-4 ml-2'>
-        <p class='m-0 mr-3 underline cursor-pointer' (click)='view(true)'>urls</p>
-        <p class='m-0 underline cursor-pointer' (click)='view(false)'>redirects</p>
+        <p [class.underline]='viewUrls' class='m-0 mr-3 cursor-pointer' (click)='view(true)'>urls</p>
+        <p [class.underline]='!viewUrls' class='m-0 underline cursor-pointer' (click)='view(false)'>redirects</p>
     </div>
 
     <div class='col-span-12 sm:col-start-2 sm:col-end-12 px-2 sm:px-0 lg:col-end-11 grid grid-cols-12' *ngIf='viewUrls'>
+        
+        <div *ngIf='urls.length == 0' class='col-span-12 flex flex-row justify-center items-center none__message__parent'>
+            <div class='flex flex-col'>
+                <i class='em em-full_moon_with_face text-2xl xs:text-3xl mb-1'></i>
+                <p class='m-0 ml-1 text-lg'>your first url awaits</p>
+            </div>
+        </div>
+
         <app-url [url]='url' (viewUrl)='viewUrlDetails($event)' *ngFor='let url of urls' class='col-span-12 sm:col-span-6 sm:mx-2 mb-4'></app-url>
         
         <div class='col-span-12 my-6 ml-2 flex flex-row' *ngIf='urlPages > 1'>
@@ -35,6 +47,14 @@
         </div>
     </div>
     <div class='col-span-12 sm:col-start-2 sm:col-end-12 px-2 sm:px-0 lg:col-end-11 grid grid-cols-12' *ngIf='!viewUrls'>
+        
+        <div *ngIf='redirects.length == 0' class='col-span-12 flex flex-row justify-center items-center none__message__parent'>
+            <div class='flex flex-col'>
+                <i class='em em-call_me_hand text-2xl xs:text-3xl mb-1'></i>
+                <p class='m-0 ml-1 text-lg'>waiting on that first redirect</p>
+            </div>
+        </div>
+        
         <app-view-redirect [redirect]='redirect' *ngFor='let redirect of redirects' class='col-span-12 sm:col-span-6 sm:mx-2 mb-4'></app-view-redirect>
     
         <div class='col-span-12 my-6 ml-2 flex flex-row' *ngIf='redirectPages > 1'>

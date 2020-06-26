@@ -1,16 +1,16 @@
 
-<div class='grid grid-cols-12 px-5 sm:px-0 lg:pl-20 lg:mt-3' *ngIf='fetched'>
+<div class='grid grid-cols-12 px-5 sm:px-0 lg:pl-20' *ngIf='fetched'>
     <div class='col-span-12 sm:col-start-2 sm:col-end-12 lg:col-end-11 text-gray-800'>
-        <div class='p-8 bg-white shadow-lg flex flex-col sm:flex-row justify-between col-span-12 mx-2'>
+        <div class='p-6 sm:p-8 bg-white shadow-lg flex flex-col sm:flex-row justify-between col-span-12 mx-2'>
             <div class='flex flex-col md:flex-row md:items-center'>
                 <div class='alias md:mr-5'>
                     <p class='m-0 lg:mt-1'>{{ url.short_path | slice:0:1 }} </p>
                 </div>
                 <div class='flex flex-col'>
                     <p class='m-0 lg:mb-1 mt-4 lg:mt-0'><b>{{ url.short_path }}</b></p>
-                    <p class='m-0'><a href='{{ url.path }}' target='_blank'>{{ url.path }}</a></p>  
+                    <p class='m-0 break-all'><a href='{{ url.path }}' target='_blank'>{{ url.path }}</a></p>  
                     <p class='m-0'>{{ getGroupName(url.group_name) }}{{ url.redirects.length }} redirects</p>
-                    <p class='m-0 lg:text-sm'>created {{ url.created_at }}</p>
+                    <p class='m-0 lg:text-base break-all'>created {{ url.created_at }}</p>
                 </div>
             </div>
             <div class='mt-2 sm:mt-0 flex flex-row items-center mr-2 sm:mr-4 md:mr-16'>
@@ -26,6 +26,14 @@
         redirects
     </div>
     <div class='col-span-12 sm:col-start-2 px-2 sm:px-0 sm:col-end-12 lg:col-end-11 grid grid-cols-12'>
+        
+        <div *ngIf='url.redirects.length == 0' class='col-span-12 flex flex-row justify-center items-center none__message__parent'>
+            <div class='flex flex-col'>
+                <i class='em em-call_me_hand text-2xl xs:text-3xl mb-1'></i>
+                <p class='m-0 ml-1 text-lg'>waiting on that first redirect</p>
+            </div>
+        </div>
+
         <app-view-redirect [redirect]='redirect' *ngFor='let redirect of url.redirects' class='col-span-12 sm:col-span-6 sm:mx-2 mb-4'></app-view-redirect>
     </div>
 </div>

@@ -8,7 +8,7 @@
   
 <div class='grid grid-cols-12 px-5 sm:px-0 lg:pl-20' *ngIf='groups.length > 0 && fetched'>
     <div class='grid grid-cols-12 px-2 sm:px-0 col-span-12 sm:col-start-2 sm:col-end-12 lg:col-end-11 text-gray-800'>
-        <div class='col-span-12 sm:col-span-6 bg-white sm:mx-2 mb-4 p-8 shadow-lg' *ngFor='let group of groups'> 
+        <div class='col-span-12 sm:col-span-6 bg-white sm:mx-2 mb-4 p-6 sm:p-8 shadow-lg' *ngFor='let group of groups'> 
             <div class='flex flex-row justify-between items-center'>
                 <div class='alias'>
                     <p class='m-0 mt-1'>{{ getAlias(group.name) }}</p>
@@ -18,12 +18,12 @@
                 </div> 
             </div>
             <div class='flex flex-col mt-5'>
-                <p class='m-0'>{{ group.name }}</p>
-                <p class='m-0'>
+                <p class='m-0 break-all'>{{ group.name }}</p>
+                <p class='m-0 break-all'>
                     <a href='{{ group.url }}' target='_blank'>{{ group.url }}</a>
                 </p>
-                <p class='m-0'>{{ group.num_urls }} urls. {{ group.num_redirects }} redirects</p>
-                <p class='m-0' style='font-size:0.94rem;'>created {{ group.created_at }}</p>
+                <p class='m-0 break-all'>{{ group.num_urls }} urls. {{ group.num_redirects }} redirects</p>
+                <p class='m-0 break-all' style='font-size:0.94rem;'>created {{ group.created_at }}</p>
             </div>
         </div>
     </div>
