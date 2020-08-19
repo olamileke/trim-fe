@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { GroupData } from '../models/group.data';
+import { GroupsData } from '../models/groups.data';
 import { environment } from '../../environments/environment.prod';
 
 @Injectable({ providedIn:'root' })
@@ -14,7 +15,7 @@ export class GroupService {
         return this.http.get<GroupData>(url);
     }
 
-    getAll(page=null, all=null): Observable<GroupData> {
+    getAll(page=null, all=null): Observable<GroupsData> {
        
         let url:string;
         if(all) {
@@ -25,7 +26,7 @@ export class GroupService {
             url = environment.api_url + `groups?page=${page}`;
         }
 
-        return this.http.get<GroupData>(url);
+        return this.http.get<GroupsData>(url);
     }
 
     create(data:any): Observable<GroupData> {
@@ -33,9 +34,9 @@ export class GroupService {
         return this.http.post<GroupData>(url, data, this.httpOptions);
     }
 
-    edit(id:number, data:any): Observable<any> {
+    edit(id:number, data:any): Observable<GroupData> {
         const url = environment.api_url + `groups/${id}`;
-        return this.http.patch<any>(url, data, this.httpOptions);
+        return this.http.patch<GroupData>(url, data, this.httpOptions);
     }
 
     delete(id:number): Observable<any> {

@@ -79,6 +79,7 @@ export class AuthComponent implements OnInit {
     this.user_service.signup(form.value).subscribe((res:UserData) => {
         this.fetching = false;
         this.notif.success('Signup successful. Check your email');
+        form.reset();
     })
   }
 

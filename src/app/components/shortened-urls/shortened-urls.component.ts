@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { UrlService } from '../../services/url.service'; 
 import { NotificationService } from '../../services/notification.service';
-import { UrlData } from '../../models/url.data';
+import { UrlsData } from '../../models/urls.data';
 import { environment } from '../../../environments/environment.prod';
 
 @Component({
@@ -23,9 +23,9 @@ export class ShortenedUrlsComponent implements OnInit {
   }
 
   fetch(page:number): void {
-    this.url.getAll(page).subscribe((res:UrlData) => {
-        this.urls = res.data['urls'];
-        const pages = res.data['total_urls'] / environment.per_page;
+    this.url.getAll(page).subscribe((res:UrlsData) => {
+        this.urls = res.data.urls;
+        const pages = res.data.total_urls / environment.per_page;
         this.pages = Math.ceil(pages);
         this.activePage = page;
         this.fetched = true;

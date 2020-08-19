@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { GroupData } from '../../../models/group.data';
+import { GroupsData } from '../../../models/groups.data';
 import { GroupService } from '../../../services/group.service';
 import { UrlService } from '../../../services/url.service';
+import { NotificationService } from '../../../services/notification.service';
 import { UrlData } from '../../../models/url.data';
 import { environment } from '../../../../environments/environment.prod';
 
@@ -14,7 +15,7 @@ import { environment } from '../../../../environments/environment.prod';
 export class ShortenComponent implements OnInit {
 
   constructor(private group:GroupService, private fb:FormBuilder,
-  private url:UrlService) { }
+  private url:UrlService, private notif:NotificationService) { }
 
   shortenForm:FormGroup;
   groups:any;
@@ -30,8 +31,8 @@ export class ShortenComponent implements OnInit {
   }
 
   fetch(): void {
-    this.group.getAll(null, true).subscribe((res:GroupData) => {
-        this.groups = res.data['groups'];
+    this.group.getAll(null, true).subscribe((res:GroupsData) => {
+        this.groups = res.data.groups;
         this.fetched = true;
     })
   }
@@ -40,6 +41,7 @@ export class ShortenComponent implements OnInit {
     this.shortenForm = this.fb.group({
         'url':['', [Validators.required, Validators.pattern(this.urlRegex)]],
         'group':['none', [Validators.required]],
+        'short_url':['']
     })
   }
 
@@ -75,9 +77,12 @@ export class ShortenComponent implements OnInit {
     this.url.create(data).subscribe((res:UrlData) => {
         form.get('url').markAsPristine();
         form.get('url').setValue('');
+        form.get('short_url').markAsPristine();
+        form.get('short_url').setValue('');
         form.get('group').setValue('none'); 
         this.shortened = true;
-        this.shortenedUrl = environment.client_url + res.data['short_path'];    
+        this.shortenedUrl = environment.client_url + res.data.short_path;   
+        this.notif.success('Link trimmed successfully');
     })
   }
 

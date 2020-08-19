@@ -2,9 +2,11 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { GroupService } from '../../services/group.service';
 import { NotificationService } from '../../services/notification.service';
 import { UrlService } from '../../services/url.service';
-import { UrlData } from '../../models/url.data';
+import { UrlsData } from '../../models/urls.data';
 import { RedirectService } from '../../services/redirect.service';
+import { RedirectsData } from '../../models/redirects.data';
 import { environment } from '../../../environments/environment.prod';
+import { GroupData } from 'src/app/models/group.data';
 
 @Component({
   selector: 'app-group',
@@ -36,26 +38,26 @@ export class GroupComponent implements OnInit {
   }
 
   fetch(): void {
-    this.group_service.get(this.group_id).subscribe((res:any) => {
+    this.group_service.get(this.group_id).subscribe((res:GroupData) => {
         this.group = res.data;
-        this.urls = res.data['urls'];
-        this.redirects = res.data['redirects'];
-        this.urlPages = Math.ceil(res.data['num_urls']/environment.per_page);
-        this.redirectPages = Math.ceil(res.data['num_redirects']/environment.per_page);
+        this.urls = res.data.urls;
+        this.redirects = res.data.redirects;
+        this.urlPages = Math.ceil(res.data.num_urls / environment.per_page);
+        this.redirectPages = Math.ceil(res.data.num_redirects / environment.per_page);
         this.fetched = true;
     })
   }
 
   fetchUrls(page:number): void {
-    this.url.getAll(page, this.group.id).subscribe((res:UrlData) => {
-        this.urls = res.data['urls'];
+    this.url.getAll(page, this.group.id).subscribe((res:UrlsData) => {
+        this.urls = res.data.urls;
         this.activeUrlPage = page;
     })
   }
 
   fetchRedirects(page:number): void {
-    this.redirect.getAll(page, this.group.id).subscribe((res:any) => {
-        this.redirects = res.data['redirects'];
+    this.redirect.getAll(page, this.group.id).subscribe((res:RedirectsData) => {
+        this.redirects = res.data.redirects;
         this.activeRedirectPage = page;
     })
   }

@@ -1,6 +1,6 @@
 
  
-<ul class='text-white px-8 sm:px-10 md:px-12 lg:px-8 md:pt-48 md:mt-16 lg:mt-0 lg:pt-4'>
+<ul class='text-white lowercase px-8 sm:px-10 md:px-12 lg:px-8 md:pt-48 md:mt-16 lg:mt-0 lg:pt-4'>
     <li class='hidden lg:block mb-16'>
         <div class='p-4 flex flex-row justify-center items-center bg-darkblue cursor-pointer text-white shadow' (click)="emitToggle('shorten')"
         style='border-radius:10px;'> 
@@ -10,32 +10,32 @@
     </li>
     <li class='transition-colors duration-500 ease-in mb-5 p-4 rounded-md flex flex-row items-center cursor-pointer' 
     [ngClass]="{'shadow__background':activeTab == 'dashboard' || (activeTab == 'shorten' && !responsive)}" (click)="emitToggle('dashboard')">
-        <i class='fa fa-align-left mr-3'></i>
+        <i class='fa fa-align-left mr-4'></i>
         <p class='m-0' style='font-size:0.93em;'>Dashboard</p>
     </li>
     <li class='lg:hidden transition-all duration-500 ease-in mb-5 p-4 rounded-md flex flex-row items-center cursor-pointer'
     [ngClass]="{'shadow__background':activeTab == 'shorten'}" (click)="emitToggle('shorten')">
-        <i class='fa fa-link mr-3'></i>
+        <i class='fa fa-link mr-4'></i>
         <p class='m-0' style='font-size:0.93em;'>Shorten Url</p>
     </li>
     <li class='transition-all duration-500 ease-in mb-5 p-4 rounded-md flex flex-row items-center cursor-pointer'
     [ngClass]="{'shadow__background':activeTab == 'new_group'}" (click)="emitToggle('new_group')">
-        <i class='fa fa-plus mr-3'></i>
+        <i class='fa fa-plus mr-4'></i>
         <p class='m-0' style='font-size:0.93em;'>New Group</p>
     </li>
     <li class='transition-all duration-500 ease-in mb-5 p-4 rounded-md flex flex-row items-center cursor-pointer'
     [ngClass]="{'shadow__background':activeTab == 'groups'}" (click)="emitToggle('groups')">
-        <i class='fa fa-layer-group mr-3'></i>
+        <i class='fa fa-layer-group mr-4'></i>
         <p class='m-0' style='font-size:0.93em;'>Groups</p>
     </li>
     <li class='transition-all duration-500 ease-in mb-5 p-4 rounded-md flex flex-row items-center cursor-pointer'
     [ngClass]="{'shadow__background':activeTab == 'short_urls'}" (click)="emitToggle('short_urls')">
-        <i class='fa fa-external-link-alt mr-3'></i>
+        <i class='fa fa-external-link-alt mr-4'></i>
         <p class='m-0' style='font-size:0.93em;'>Shortened Urls</p>
     </li>
     <li class='transition-all duration-500 ease-in mb-5 p-4 rounded-md flex flex-row items-center cursor-pointer'
     [ngClass]="{'shadow__background':activeTab == 'redirects'}" (click)="emitToggle('redirects')">
-        <i class='fa fa-reply mr-3' style='transform:rotate(180deg);'></i>
+        <i class='fa fa-reply mr-4' style='transform:rotate(180deg);'></i>
         <p class='m-0' style='font-size:0.93em;'>Redirects</p>
     </li>
 </ul>

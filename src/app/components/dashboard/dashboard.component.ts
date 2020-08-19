@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
   redirectsChartDataset = [];
   redirectsChartLabels = [];
   chartOptions = {responsive:true, legend:{labels:{fontFamily:'Quicksand', fontSize:15}},
-  scales:{ yAxes:[{gridLines:{display:false},ticks: { padding: 10,fontColor: "rgba(0,0,0,1)", beginAtZero: true, fontFamily:'Quicksand'}}],
+  scales:{ yAxes:[{gridLines:{display:false},ticks: { padding: 10,fontColor: "rgba(0,0,0,1)", precision:0, suggestedMax:10, beginAtZero: true, fontFamily:'Quicksand'}}],
   xAxes: [{gridLines:{zeroLineColor:'rgba(0,0,0,0.1)', display:false}, ticks: {padding: 10,fontColor: "rgba(0,0,0,1)", fontFamily:'Quicksand'}}]}
   };
   chartColors = [{backgroundColor:'rgba(0,0,0,0.009)', borderColor:'rgba(51, 92, 103, 1)', 

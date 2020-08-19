@@ -10,7 +10,7 @@
                     <p class='m-0 mb-1'><b>{{ group.name }}</b></p>
                     <p class='m-0 break-all'><a href='{{ group.url }}' target='_blank'>{{ group.url }}</a></p>  
                     <p class='m-0'>{{ group.num_urls }} urls. {{ group.num_redirects }} redirects</p>
-                    <p class='m-0 text-base break-all'>created {{ group.created_at }}</p>
+                    <p class='m-0 text-base lowercase break-all'>created {{ group.created_at }}</p>
                     <div class='flex flex-row sm:hidden mt-1'>
                         <p class='m-0 mr-3 underline cursor-pointer' (click)='edit()'>edit</p>
                         <p class='m-0 underline cursor-pointer' (click)='delete()'>delete</p>
