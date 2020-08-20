@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UrlService } from '../../services/url.service';
+import { UrlData } from '../../models/url.data';
+import { Url } from '../../models/url';
 import { NotificationService } from '../../services/notification.service';
 
 @Component({
@@ -15,7 +17,7 @@ export class EditUrlComponent implements OnInit {
 
   @Input() url_id;
   @Output() viewUrl = new EventEmitter();
-  url:any;  
+  url:Url;  
   editForm:FormGroup;
   urlRegex:string = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
   fetched:boolean = false;
@@ -25,16 +27,17 @@ export class EditUrlComponent implements OnInit {
   }
 
   fetch(): void {
-    this.url_service.get(this.url_id).subscribe((res:any) => {
+    this.url_service.get(this.url_id).subscribe((res:UrlData) => {
         this.url = res.data;
         this.fetched = true;
-        this.createForm(this.url.path)
+        this.createForm(this.url.path, this.url.short_path)
     })
   }
 
-  createForm(path:string): void {
+  createForm(path:string, short_path:string): void {
     this.editForm = this.fb.group({
-        'url':[path, [Validators.required, Validators.pattern(this.urlRegex)]]
+        'url':[path, [Validators.required, Validators.pattern(this.urlRegex)]],
+        'short_url':[short_path, [Validators.required, Validators.minLength(3)]]
     })
   }
 

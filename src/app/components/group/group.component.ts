@@ -43,7 +43,7 @@ export class GroupComponent implements OnInit {
         this.urls = res.data.urls;
         this.redirects = res.data.redirects;
         this.urlPages = Math.ceil(res.data.num_urls / environment.per_page);
-        this.redirectPages = Math.ceil(res.data.num_redirects / environment.per_page);
+        this.redirectPages = Math.ceil(res.data.num_redirects / (environment.per_page * 2));
         this.fetched = true;
     })
   }

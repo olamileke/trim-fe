@@ -122,14 +122,19 @@ export class ErrorInterceptor implements HttpInterceptor {
             }
 
             if(error.status == 403 && error.error.message.includes('available')) {
-                this.notif.error('short link is taken');
+                this.notif.error('short link is not available');
                 displayed = true;
             }
         }
 
         if(url.includes('urls') && url.length == 6) {
-            if(error.status == 403) {
+            if(error.status == 403 && error.error.message.includes('shortened')) {
                 this.notif.error('url has been shortened already');
+                displayed = true;
+            }
+
+            if(error.status == 403 && error.error.message.includes('available')) {
+                this.notif.error('short link is not available');
                 displayed = true;
             }
         }

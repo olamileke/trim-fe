@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { ChartsModule } from 'ng2-charts';
@@ -15,6 +16,7 @@ import { HttpInterceptors } from './interceptors/http.interceptors';
 import { UserService } from './services/user.service';
 import { NotificationService } from './services/notification.service';
 import { AuthService } from './services/auth.service';
+import { RedirectService } from './services/redirect.service';
 import { LoaderComponent } from './components/loader/loader.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthHomeComponent } from './components/auth-home/auth-home.component';
@@ -36,6 +38,7 @@ import { AllRedirectsComponent } from './components/all-redirects/all-redirects.
 import { PasswordResetComponent } from './components/password-reset/password-reset.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { initApp } from './bootstrap/redirect';
 
 
 @NgModule({
@@ -73,7 +76,12 @@ import { environment } from '../environments/environment';
     ChartsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [
+  providers: [{
+        provide:APP_INITIALIZER,
+        useFactory:initApp,
+        multi:true,
+        deps:[Router, RedirectService]
+    },
     HttpInterceptors,
     UserService,
     NotificationService,

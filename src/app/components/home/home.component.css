@@ -4,12 +4,21 @@
     width:350px;
 }
 
+.signup__btn
+{
+    box-shadow:2px 5px 3px 3px rgba(0,0,0,0.1);
+}
 
 @media(max-width:1025px)
 {
     .landing__page
     {
         height:50vh;
+    }
+
+    .signup__btn
+    {
+        box-shadow:unset;
     }
 }
 

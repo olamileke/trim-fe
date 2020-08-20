@@ -1,12 +1,12 @@
 
-<div *ngIf='groups.length == 0 && fetched' class='w-full flex flex-row justify-center items-center' style='height:calc(80vh - 144px)'>
-    <div class='flex flex-col'>
-        <i class='em em-anguished text-2xl xs:text-3xl sm:text-4xl mb-2'></i>
-        <p class='m-0 ml-1 text-lg'>no groups to display</p>
+<div *ngIf='groups.length == 0 && fetched' class='w-full flex flex-row justify-center items-center empty__message__parent'>
+    <div class='flex flex-col items-center sm:items-start px-5 sm:px-0'>
+        <i class='em em-pensive text-2xl xs:text-3xl sm:text-4xl mb-2'></i>
+        <p class='text-center sm:text-left m-0 ml-1 text-lg'>no url groups to display. this makes me very sad.</p>
     </div>
 </div>
   
-<div class='grid grid-cols-12 px-5 sm:px-0 lg:pl-20' *ngIf='groups.length > 0 && fetched'>
+<div class='grid grid-cols-12 px-5 sm:px-0 lg:pl-20' [class.mb-6]='pages == 1' *ngIf='groups.length > 0 && fetched'>
     <div class='grid grid-cols-12 px-2 sm:px-0 col-span-12 sm:col-start-2 sm:col-end-12 lg:col-end-11 text-gray-800'>
         <div class='col-span-12 sm:col-span-6 bg-white sm:mx-2 mb-4 p-6 sm:p-8 shadow-lg' *ngFor='let group of groups'> 
             <div class='flex flex-row justify-between items-center'>

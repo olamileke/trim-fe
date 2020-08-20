@@ -1,4 +1,11 @@
 
+<div *ngIf='redirects.length == 0 && fetched' class='w-full flex flex-row justify-center items-center empty__message__parent'>
+    <div class='flex flex-col items-center sm:items-start px-5 sm:px-0'>
+        <i class='em em-call_me_hand text-2xl xs:text-3xl sm:text-4xl mb-2'></i>
+        <p class='text-center sm:text-left m-0 ml-1 text-md xs:text-lg'>waiting on that first redirect. all in due time.<p>
+    </div>
+</div>
+
 <div class='grid grid-cols-12 px-5 sm:px-0 lg:pl-20' *ngIf='fetched && redirects.length > 0'>
     <div class='grid grid-cols-12 col-span-12 sm:col-start-2 sm:col-end-12 lg:col-end-11 text-gray-800'>
         <app-view-redirect [redirect]='redirect' *ngFor='let redirect of redirects' class='col-span-12 sm:col-span-6 sm:mx-2 mb-4'></app-view-redirect>

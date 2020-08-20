@@ -5,5 +5,6 @@ export interface Url {
     path:string,
     short_path:string,
     num_redirects?:number,
+    custom?:boolean,
     created_at:string
 }

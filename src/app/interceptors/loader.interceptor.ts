@@ -12,9 +12,7 @@ export class LoaderInterceptor implements HttpInterceptor {
 
     intercept(req:HttpRequest<any>, next:HttpHandler): Observable<HttpEvent<any>> {
 
-        if(!req.url.includes('redirects')) {
-            this.loader.show();
-        }
+        req.url.includes('redirects') && req.method.toLowerCase() == 'post' ? '' : this.loader.show();
         
         return next.handle(req).pipe(finalize(() => this.loader.hide()));        
     }

@@ -16,6 +16,11 @@
     height:calc(60vh - 144px);
 }
 
+.empty__message__parent
+{
+    height:calc(80vh - 144px);
+}
+
 button:active
 {
     background:rgba(40, 59, 66, 0.9);
@@ -40,6 +45,11 @@ button:active
     .form__parent__height
     {
         height:calc(100vh - 170px);
+    }
+
+    .empty__message__parent
+    {
+        height:calc(80vh - 98px);
     }
 }
 

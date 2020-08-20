@@ -16,7 +16,7 @@
                 <i class='text-gray-600 fa fa-caret-down text-xs'></i>
             </div>   
         </div>
-        <div [ngClass]="{'active':options, 'z--9999':!options, 'z-20':options}" class='transition-all duration-300 ease-in absolute text-white p-4 w-3/4 flex flex-col items-center text-sm rounded-lg nav__options' style='background:rgba(0,0,0,0.5)'>
+        <div [ngClass]="{'active':options, 'z--9999':!options, 'z-20':options}" class='transition-all duration-300 ease-in absolute text-white p-4 w-2/3 flex flex-col items-center text-sm rounded-lg nav__options' style='background:rgba(0,0,0,0.5)'>
             <p class='m-0 mb-3 cursor-pointer text-center' (click)='clickFile()'>change picture</p>
             <p class='m-0 mb-3 cursor-pointer text-center' (click)='upload()'  *ngIf='allowUpload'>update</p>
             <input type='file' class='hidden' (change)='preview($event.target)' #fileInput>

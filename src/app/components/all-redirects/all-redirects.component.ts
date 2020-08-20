@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RedirectService } from '../../services/redirect.service';
 import { RedirectsData } from '../../models/redirects.data';
+import { Redirect } from '../../models/redirect';
 import { environment } from '../../../environments/environment.prod';
 
 @Component({
@@ -11,7 +12,7 @@ import { environment } from '../../../environments/environment.prod';
 export class AllRedirectsComponent implements OnInit {
 
   constructor(private redirect:RedirectService) { }
-  redirects:any;
+  redirects:Redirect[] = [];
   pages:number;
   activePage:number;
   fetched:boolean = false;

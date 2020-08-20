@@ -1,13 +1,13 @@
 
 
-<div *ngIf='urls.length == 0 && fetched' class='w-full flex flex-row justify-center items-center' style='height:calc(80vh - 144px)'>
-    <div class='flex flex-col'>
+<div *ngIf='urls.length == 0 && fetched' class='w-full flex flex-row justify-center items-center empty__message__parent'>
+    <div class='flex flex-col items-center sm:items-start px-5 sm:px-0'>
         <i class='em em-sob text-2xl xs:text-3xl sm:text-4xl mb-2'></i>
-        <p class='m-0 ml-1 text-md xs:text-lg'>get shortening already</p>
+        <p class='text-center sm:text-left m-0 ml-1 text-md xs:text-lg'>there are no short links to display. get shortening already</p>
     </div>
 </div>
 
-<div class='grid grid-cols-12 px-5 sm:px-0 lg:pl-20' *ngIf='fetched && urls.length > 0'>
+<div class='grid grid-cols-12 px-5 sm:px-0 lg:pl-20' [class.mb-6]='pages == 1' *ngIf='fetched && urls.length > 0'>
     <div class='grid grid-cols-12 col-span-12 sm:col-start-2 sm:col-end-12 lg:col-end-11 text-gray-800'>
         <app-url [url]='url' (viewUrl)='viewUrlDetails($event)' *ngFor='let url of urls' class='col-span-12 sm:col-span-6 mx-2 mb-4'></app-url>
     </div>
