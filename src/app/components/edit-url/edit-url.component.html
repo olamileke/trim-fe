@@ -1,10 +1,10 @@
 
  <div class='grid grid-cols-12 form__parent__height flex flex-row items-center pt-4 xs:pt-0 sm:items-start sm:mt-40 md:mt-48 lg:mt-12' *ngIf='fetched'>
-    <div class='col-span-12 px-5 sm:px-0 sm:col-start-2 sm:col-end-12 md:col-start-3 md:col-end-11 lg:col-end-10'>
-        <div class='lowercase bg-white p-5 text-md mb-2 text-gray-700 shadow-lg'>
+    <div class='col-span-12 px-5 sm:px-0 sm:col-start-2 sm:col-end-12 md:col-start-3 md:col-end-11 lg:pl-3 lg:pr-16 lg:ml-2 lg:col-end-11'>
+        <div class='lowercase bg-white p-5 text-md mb-3 text-gray-700 shadow-md'>
             edit trimm.in/{{ url.short_path }} 
         </div> 
-        <form class='bg-white shadow-lg px-6 py-8' [formGroup]='editForm' (ngSubmit)='submit(editForm)'>
+        <form class='bg-white shadow-md px-6 py-8' [formGroup]='editForm' (ngSubmit)='submit(editForm)'>
             <div class='flex flex-col mb-3'>
                 <p class='text-md text-gray-700 mb-3'>url</p>
                 <input type='text' formControlName='url' (input)='setUrlText($event.target.value)' class='lowercase focus:outline-none text-gray-700 focus:bg-offwhite border p-3' required>

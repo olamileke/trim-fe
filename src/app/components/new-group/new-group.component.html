@@ -1,10 +1,10 @@
 
 <div class='grid grid-cols-12 flex flex-row form__parent__height pt-4 items-center xs:pt-0 sm:h-auto sm:items-start sm:mt-40 md:mt-48 lg:mt-12'>
-    <div class='col-span-12 px-5 sm:px-0 sm:col-start-2 sm:col-end-12 md:col-start-3 md:col-end-11 lg:col-end-10'>
-        <div class='shadow-lg lowercase bg-white p-5 text-md mb-2 text-gray-700'>
+    <div class='col-span-12 px-5 sm:px-0 sm:col-start-2 sm:col-end-12 md:col-start-3 md:col-end-11 lg:pl-3 lg:pr-16 lg:ml-2 lg:col-end-11'>
+        <div class='shadow-md lowercase bg-white p-5 text-md mb-3 text-gray-700'>
             Create a new URL group 
         </div>
-        <form class='shadow-lg bg-white px-6 py-8' [formGroup]='newForm' (ngSubmit)='submit(newForm)'>
+        <form class='shadow-md bg-white px-6 py-8' [formGroup]='newForm' (ngSubmit)='submit(newForm)'>
             <div class='flex flex-col mb-3'>
                 <p class='text-md text-gray-700 mb-3'>name</p>
                 <input type='text' formControlName='name' class='lowercase focus:outline-none text-gray-700 focus:bg-offwhite border p-3' required>

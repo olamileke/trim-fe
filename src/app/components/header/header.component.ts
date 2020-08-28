@@ -92,6 +92,14 @@ export class HeaderComponent implements OnInit {
     })
   }
 
+  trimName(name:string):string {
+    if(name.length > 13) {
+        return name.slice(0, 13) + '...';
+    }
+
+    return name;
+  }
+
   setBarsClickedState(): void {
     this.barsClicked = !this.barsClicked;
   }

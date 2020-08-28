@@ -19,7 +19,7 @@ export class ShortenComponent implements OnInit {
 
   shortenForm:FormGroup;
   groups:any;
-  urlRegex:string = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
+  urlRegex:string = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-?=&]*/?';
   fetched:boolean;
   shortened:boolean = false;
   selectedGroupUrl:string = 'None';
