@@ -15,23 +15,13 @@ export class EditUrlComponent implements OnInit {
   constructor(private url_service:UrlService, private fb:FormBuilder,
   private notif:NotificationService) {}
 
-  @Input() url_id;
+  @Input() url:Url;
   @Output() viewUrl = new EventEmitter();
-  url:Url;  
   editForm:FormGroup;
-  urlRegex:string = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
-  fetched:boolean = false;
+  urlRegex:string = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-?=&]*/?';
 
   ngOnInit(): void {
-    this.fetch();
-  }
-
-  fetch(): void {
-    this.url_service.get(this.url_id).subscribe((res:UrlData) => {
-        this.url = res.data;
-        this.fetched = true;
-        this.createForm(this.url.path, this.url.short_path)
-    })
+    this.createForm(this.url.path, this.url.short_path);
   }
 
   createForm(path:string, short_path:string): void {
@@ -55,12 +45,16 @@ export class EditUrlComponent implements OnInit {
     })
   }
 
-  get form_url(): any {
+  get formUrl(): any {
     return this.editForm.get('url');
   }
 
+  get formShortUrl(): any {
+    return this.editForm.get('short_url');
+  }
+
   emitViewUrl():void {
-    const data = {tab:'url', url_id:this.url_id};
+    const data = {tab:'url', url_id:this.url.id};
     this.viewUrl.emit(data);
   }
 

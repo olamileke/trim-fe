@@ -15,7 +15,7 @@ export class NewGroupComponent implements OnInit {
   private notif:NotificationService) { }
 
   newForm:FormGroup;
-  urlRegex:string = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
+  urlRegex:string = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-?=&]*/?';
 
   ngOnInit(): void {
     this.createForm();

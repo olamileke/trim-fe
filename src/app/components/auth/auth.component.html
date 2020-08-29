@@ -9,17 +9,17 @@
                 <div class='flex flex-col mb-3'>
                     <p class='m-0 mb-2 text-gray-600 text-sm'>name</p>
                     <input type='text' formControlName='name' class='focus:outline-none capitalize p-3 border bg-transparent border-color-005 w-full text-sm text-gray-600' required>
-                    <p class='text-xs pt-2 text-red-500' *ngIf='signupName.dirty && signupName.invalid'>name must be at least 7 characters</p>
+                    <p class='text-xs pt-2' style='color:red;' *ngIf='signupName.dirty && signupName.invalid'>name must be at least 7 characters</p>
                 </div>
                 <div class='flex flex-col mb-3'>
                     <p class='m-0 mb-2 text-gray-600 text-sm'>email</p>
                     <input type='email' formControlName='email' class='focus:outline-none lowercase p-3 border bg-transparent border-color-005 w-full text-sm text-gray-600'>
-                    <p class='text-xs pt-2 text-red-500' *ngIf='signupEmail.dirty && signupEmail.invalid'>enter a valid email address</p>
+                    <p class='text-xs pt-2' style='color:red;' *ngIf='signupEmail.dirty && signupEmail.invalid'>enter a valid email address</p>
                 </div>
                 <div class='flex flex-col mb-5'>
                     <p class='m-0 mb-2 text-gray-600 text-sm'>password</p>
                     <input type='password' formControlName='password' class='focus:outline-none p-3 border bg-transparent border-color-005 w-full text-sm text-gray-600'>
-                    <p class='text-xs pt-2 text-red-500' *ngIf='signupPassword.dirty && signupPassword.invalid'>password must be at least 8 characters</p>
+                    <p class='text-xs pt-2' style='color:red;' *ngIf='signupPassword.dirty && signupPassword.invalid'>password must be at least 8 characters</p>
                 </div>
                 <div class='flex flex-col'>
                     <button type='submit' class='focus:outline-none text-white p-2 text-sm mb-3 rounded bg-darkblue' style='width:min-content' [disabled]='signupForm.invalid'>signup</button>
@@ -31,12 +31,12 @@
                 <div class='flex flex-col mb-3'>
                     <p class='m-0 mb-2 text-gray-600 text-sm'>email</p>
                     <input type='email' formControlName='email' class='focus:outline-none p-3 border bg-transparent border-color-005 w-full text-sm text-gray-600'>
-                    <p class='text-xs pt-2 text-red-500' *ngIf='loginEmail.dirty && loginEmail.invalid'>enter a valid email address</p>
+                    <p class='text-xs pt-2' style='color:red;' *ngIf='loginEmail.dirty && loginEmail.invalid'>enter a valid email address</p>
                 </div>
                 <div class='flex flex-col mb-5'>
                     <p class='m-0 mb-2 text-gray-600 text-sm'>password</p>
                     <input type='password' formControlName='password' class='focus:outline-none p-3 border bg-transparent border-color-005 w-full text-sm text-gray-600'>
-                    <p class='text-xs pt-2 text-red-500' *ngIf='loginPassword.dirty && loginPassword.invalid'>password must be at least 8 characters</p>
+                    <p class='text-xs pt-2' style='color:red;' *ngIf='loginPassword.dirty && loginPassword.invalid'>password must be at least 8 characters</p>
                 </div>
                 <div class='flex flex-col'>
                     <button type='submit' class='focus:outline-none text-white px-3 py-2 text-sm mb-3 rounded bg-darkblue' style='width:min-content' [disabled]='loginForm.invalid'>login</button>

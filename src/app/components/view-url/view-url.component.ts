@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { UrlService } from '../../services/url.service';
+import { UrlData } from '../../models/url.data';
 import { NotificationService } from '../../services/notification.service';
 import { environment } from '../../../environments/environment.prod';
 
@@ -28,7 +29,7 @@ export class ViewUrlComponent implements OnInit {
   }
 
   fetch(): void {
-    this.url_service.get(this.url_id).subscribe((res:any) => {
+    this.url_service.get(this.url_id).subscribe((res:UrlData) => {
         this.url = res.data;
         this.fetched = true;
     })
@@ -42,13 +43,19 @@ export class ViewUrlComponent implements OnInit {
     return '';
   } 
 
-  edit(url_id:number) {
-    const data = {tab:'edit_url', url_id:url_id};
+  edit() {
+    const data = {tab:'edit_url', url:this.url};
     this.editUrl.emit(data);
   }
 
-  delete(url_id:number) {
-    this.url_service.delete(url_id).subscribe((res:any) => {
+  delete() {
+    const del = confirm(`are you sure you want to delete ${this.url.short_path} ?`);
+
+    if(!del) {
+        return;
+    }
+
+    this.url_service.delete(this.url.id).subscribe((res:any) => {
         this.urls.emit();
         this.notif.success('Url deleted successfully');
     })

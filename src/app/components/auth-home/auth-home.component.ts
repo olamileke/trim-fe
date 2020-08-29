@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
+import { Group } from '../../models/group';
+import { Url } from '../../models/url';
 
 @Component({
   selector: 'app-auth-home',
@@ -12,7 +14,9 @@ export class AuthHomeComponent implements OnInit {
   tabs: any = { dashboard:true, new_group:false, edit_group:false, groups:false, group:false,
   shorten:false, short_urls:false, url:false, edit_url:false, redirects:false }
   
+  activeGroup:Group;
   activeGroupID:number;
+  activeUrl:Url;
   activeUrlID:number;
   urlFromGroup:boolean;
   displaySidebar:boolean = false;
@@ -27,10 +31,22 @@ export class AuthHomeComponent implements OnInit {
     this.urlFromGroup = from_group;
   }
 
-  switchTab(tab:string, group_id=null, sidebar=null): void {
+  switchToGroup(tab:string, group_id:number) {
+    this.switchTab(tab);
 
     if(group_id) {
         this.activeGroupID = group_id;
+    }
+  }
+
+  switchTab(tab:string, group=null, url=null, sidebar=null): void {
+
+    if(group) {
+        this.activeGroup = group;
+    }
+
+    if(url) {
+        this.activeUrl = url;
     }
 
     Object.keys(this.tabs).forEach(key => {

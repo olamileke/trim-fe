@@ -1,7 +1,7 @@
 
 <div class='w-screen h-min-screen grid grid-cols-12 quicksand'>
     <div [class.active]='displaySidebar' class='z-40 transition-all duration-500 ease-in flex flex-row items-center md:items-start lg:block h-screen pt-16 bg-darkblue sidebar__parent'>
-        <app-sidebar (toggle)="switchTab($event, null, true)"></app-sidebar>
+        <app-sidebar (toggle)="switchTab($event, null, null, true)"></app-sidebar>
     </div>  
     <div class='col-span-12 min-h-screen lg:col-start-3 lg:col-end-13 bg-offwhite'>
         <app-header (displaySidebar)='toggleSidebar()'></app-header>
@@ -10,21 +10,21 @@
 
         <app-new-group *ngIf='tabs.new_group'></app-new-group>
 
-        <app-edit-group *ngIf='tabs.edit_group' (viewGroup)='switchTab($event.tab, $event.id)' [group_id]='activeGroupID'></app-edit-group>
+        <app-edit-group *ngIf='tabs.edit_group' (viewGroup)='switchTab($event.tab, $event.id)' [group]='activeGroup'></app-edit-group>
 
-        <app-groups *ngIf='tabs.groups' (viewGroup)='switchTab($event.tab, $event.id)'></app-groups>
+        <app-groups *ngIf='tabs.groups' (viewGroup)='switchToGroup($event.tab, $event.id)'></app-groups>
 
-        <app-group *ngIf='tabs.group' (viewUrl)='switchToUrl($event.tab, $event.url_id, true)' (editGroup)='switchTab($event.tab, $event.id)' (deletedGroup)='switchTab($event)'
-        (viewGroups)='switchTab($event)' [group_id]='activeGroupID'></app-group> 
+        <app-group *ngIf='tabs.group' (viewUrl)='switchToUrl($event.tab, $event.url_id, true)' (editGroup)='switchTab($event.tab, $event.group)' (deletedGroup)='switchTab($event)'
+        (viewGroups)='switchTab($event)' [group_id]='activeGroupID'></app-group>  
 
         <app-shorten *ngIf='tabs.shorten'></app-shorten>
 
         <app-shortened-urls (viewUrl)='switchToUrl($event.tab, $event.url_id, false)' *ngIf='tabs.short_urls'></app-shortened-urls>
 
-        <app-view-url *ngIf='tabs.url' (urls)='switchTab("short_urls")' (editUrl)='switchTab($event.tab, $event.url_id)' (viewUrls)='switchTab($event)'
+        <app-view-url *ngIf='tabs.url' (urls)='switchTab("short_urls")' (editUrl)='switchTab($event.tab, null, $event.url)' (viewUrls)='switchTab($event)'
         (viewGroup)='switchTab($event.tab, $event.id)' [url_id]='activeUrlID' [group_id]='activeGroupID' [from_group]='urlFromGroup'></app-view-url>
 
-        <app-edit-url *ngIf='tabs.edit_url' (viewUrl)='switchToUrl($event.tab, $event.url_id)' [url_id]='activeUrlID'></app-edit-url> 
+        <app-edit-url *ngIf='tabs.edit_url' (viewUrl)='switchToUrl($event.tab, $event.url_id)' [url]='activeUrl'></app-edit-url> 
         
         <app-all-redirects *ngIf='tabs.redirects'></app-all-redirects>
     </div>

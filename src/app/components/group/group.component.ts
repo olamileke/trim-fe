@@ -78,11 +78,17 @@ export class GroupComponent implements OnInit {
   }
 
   edit(): void {
-    const data = {tab:'edit_group', id:this.group_id};
+    const data = {tab:'edit_group', group:this.group};
     this.editGroup.emit(data)
   }
 
-  delete(): void {
+  delete(): void { 
+    const del = confirm(`are you sure you want to delete ${this.group.name} ?`);
+
+    if(!del) {
+        return;
+    }
+    
     this.group_service.delete(this.group_id).subscribe((res:any) => {
         this.notif.success(`${this.group.name} deleted successfully`);
         this.deletedGroup.emit('groups');
