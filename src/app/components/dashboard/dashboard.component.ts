@@ -11,8 +11,8 @@ export class DashboardComponent implements OnInit {
   constructor(private stats:StatsService) { }
 
   totals:any;
-  redirects:any;
   dataFetched:boolean;
+  lg:boolean;
 
   // chart configuration options
   redirectsChartType:string='line';
@@ -33,6 +33,7 @@ export class DashboardComponent implements OnInit {
  
   ngOnInit(): void {
     this.fetch();
+    screen.width < 1025 ? this.lg = true : this.lg = false;
   }
 
   fetch(): void {
@@ -52,7 +53,6 @@ export class DashboardComponent implements OnInit {
         const urlDataset = {data:Object.values(url_stats), label:'most visited short links'};
         this.urlChartDataset.push(urlDataset);
         
-        this.redirects = res.data['redirects'];
         this.dataFetched = true;
     })
   }

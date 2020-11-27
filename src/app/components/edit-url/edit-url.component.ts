@@ -18,7 +18,7 @@ export class EditUrlComponent implements OnInit {
   @Input() url:Url;
   @Output() viewUrl = new EventEmitter();
   editForm:FormGroup;
-  urlRegex:string = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-?=&]*/?';
+  urlRegex:string = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[-/\\w .?=&]*/?';
 
   ngOnInit(): void {
     this.createForm(this.url.path, this.url.short_path);

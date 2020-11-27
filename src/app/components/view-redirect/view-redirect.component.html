@@ -1,10 +1,10 @@
 
 
-<div class='p-8 bg-white shadow-lg flex flex-row items-center'>
-    <div class='alias'>
+<div class='p-8 bg-white shadow-md flex flex-col md:flex-row md:items-center'>
+    <div class='alias mb-3 md:mb-0'>
         <p class='m-0 mt-1'>{{ redirect.short_url | slice:0:1 }}</p>
     </div>
-    <div class="flex flex-col ml-5">
+    <div class="flex flex-col md:ml-5">
         <p class='m-0 mb-1'>{{ redirect.short_url }}</p>
         <p class='m-0 mb-1 break-all'>{{ redirect.url }}</p> 
         <p class='m-0 lowercase'>{{ redirect.created_at }}</p>

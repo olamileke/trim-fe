@@ -17,7 +17,7 @@ export class EditGroupComponent implements OnInit {
   @Output() viewGroup = new EventEmitter();
   editForm:FormGroup;
   groupName:string;
-  urlRegex:string = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-?=&]*/?';
+  urlRegex:string = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[-/\\w .?=&]*/?';
   fetched:boolean = true;
 
   ngOnInit(): void {

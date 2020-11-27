@@ -8,7 +8,7 @@
   
 <div class='grid grid-cols-12 px-5 sm:px-0 lg:pl-20' [class.mb-6]='pages == 1' *ngIf='groups.length > 0 && fetched'>
     <div class='grid grid-cols-12 px-2 sm:px-0 col-span-12 sm:col-start-2 sm:col-end-12 lg:col-end-11 text-gray-800'>
-        <div class='col-span-12 sm:col-span-6 bg-white sm:mx-2 mb-4 p-6 sm:p-8 shadow-lg' *ngFor='let group of groups'> 
+        <div class='col-span-12 sm:col-span-6 bg-white sm:mx-2 mb-4 p-6 sm:p-8 shadow-md' *ngFor='let group of groups'> 
             <div class='flex flex-row justify-between items-center'>
                 <div class='alias'>
                     <p class='m-0 mt-1'>{{ getAlias(group.name) }}</p>

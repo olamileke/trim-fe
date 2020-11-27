@@ -19,7 +19,7 @@ export class ShortenComponent implements OnInit {
 
   shortenForm:FormGroup;
   groups:any;
-  urlRegex:string = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-?=&]*/?';
+  urlRegex:string = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[-/\\w .?=&]*/?';
   fetched:boolean;
   shortened:boolean = false;
   selectedGroupUrl:string = 'None';
@@ -41,7 +41,7 @@ export class ShortenComponent implements OnInit {
     this.shortenForm = this.fb.group({
         'url':['', [Validators.required, Validators.pattern(this.urlRegex)]],
         'group':['none', [Validators.required]],
-        'short_url':['']
+        'short_url':['', Validators.minLength(4)]
     })
   }
 
@@ -88,6 +88,10 @@ export class ShortenComponent implements OnInit {
 
   get path(): any {
     return this.shortenForm.get('url');
+  }
+
+  get shortPath(): any {
+    return this.shortenForm.get('short_url');
   }
 
 }

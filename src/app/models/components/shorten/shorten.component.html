@@ -4,7 +4,7 @@
     <div class='col-span-12 px-5 sm:px-0 sm:col-start-2 sm:col-end-12 md:col-start-3 md:col-end-11 lg:pl-3 lg:pr-16 lg:ml-2 lg:col-end-11'>
         <div *ngIf='shortened' class='shadow-md p-5 bg-white flex flex-row mb-3'>
             <div class='leading-7 text-gray-700'>
-                shortened link - <a href='{{ shortenedUrl }}' target='blank'>{{ shortenedUrl }}</a>
+                shortened link - <a href='{{ shortenedUrl }}' target='_blank'>{{ shortenedUrl }}</a>
             </div> 
         </div>
         <div *ngIf='!shortened' class='lowercase shadow-md bg-white p-5 text-md mb-3 text-gray-700'>
@@ -21,12 +21,12 @@
             <div class='flex flex-col mb-5'>
                 <p class='text-md text-gray-700 mb-3'>url</p>
                 <input type='text' formControlName='url' class='lowercase focus:outline-none text-gray-700 focus:bg-offwhite border p-3' (input)='setUrl($event.target.value)' required>
-                <p class='pt-2 text-xs' style='color:red;' *ngIf='path.dirty && path.invalid'>enter a valid url</p>
+                <p class='pt-2 text-xs font-semibold' style='color:red;' *ngIf='path.dirty && path.invalid'>enter a valid url</p>
             </div>
             <div class='flex flex-col mb-5'>
                 <p class='text-md text-gray-700 mb-3'>custom short link(optional)</p>
                 <input type='text' formControlName='short_url' class='lowercase focus:outline-none text-gray-700 focus:bg-offwhite border p-3'>
-                <p class='pt-2 text-xs' style='color:red;' *ngIf='path.dirty && path.invalid'>enter a valid url</p>
+                <p class='font-semibold pt-2 text-xs' style='color:red;' *ngIf='shortPath.dirty && shortPath.invalid'>must be at least 4 characters</p>
             </div>
             <div>
                 <button type='submit' class='focus:outline-none text-white px-3 py-2 mb-3 rounded-sm lg:rounded bg-darkblue' [disabled]='shortenForm.invalid' style='font-size:0.92em'>shorten</button>
