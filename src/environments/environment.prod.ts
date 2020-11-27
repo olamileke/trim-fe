@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
   api_url:'https://trimbackend.herokuapp.com/api/',
-  client_url:'http://localhost:4200/',
+  client_url:'https://trimapp.netlify.app/',
   per_page:6
 };
