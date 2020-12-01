@@ -50,7 +50,7 @@ export class AuthComponent implements OnInit {
     const data = {'token':token};
 
     this.user_service.activate(data).subscribe((res:UserData) => {
-        this.notif.success('Signup completed!');
+        this.notif.success('Complete the process at your email!');
     })
   }
 
