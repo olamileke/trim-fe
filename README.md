@@ -5,7 +5,7 @@ Fully featured URL shortener written in Angular. Create url groups, trim links a
 
 The backend is written in flask-restful and is available [here](https://github.com/olamileke/trim-be "here"). 
 
-View the live application [here](https://trimapp.netlify.app "here").
+View the live application [here](https://trimm.xyz "here").
 
 To run this application locally, you must have node installed. Get that [here](https://nodejs.org "here"). You also need to have the Angular CLI installed. To do this, open up your terminal and run
 
